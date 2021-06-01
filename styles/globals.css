@@ -38,5 +38,8 @@ a {
   #logo{
     display:none;
   } 
+  .footerlink{
+    font-size: 15px;
+  }
 }
 
