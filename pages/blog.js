@@ -8,15 +8,15 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Anais Concept</title>
+        <title>Anais Concept - Blog</title>
         <meta name="description" content="A vos risques et plaisirs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="container-md" style={{paddingLeft: 0, paddingRight:0}}>
-        <MenuBar itemNumber={0} />
-        <div style={{height: "600px"}}></div>
-        <Footer />
+      <MenuBar itemNumber={0} />
+      <div style={{height: "600px"}}></div>
+      <Footer />
       </main>      
     </div>
   )
