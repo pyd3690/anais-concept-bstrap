@@ -34,7 +34,7 @@ const topPicture_data = {
 }
 
 const bottomPicture_data = {
-  title: "Le bohneur sur Mesure",
+  title: "Anais Concept c'est aussi",
   list: ["Des Conseils en cadeaux", 
     "Du Mangement d'evenements",
     "Du Design d'emballages"]
