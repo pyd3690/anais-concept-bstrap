@@ -7,7 +7,7 @@ import {Navbar, Nav, Button, Badge} from 'react-bootstrap'
 const MenuBar = (props) => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top'>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '5px', width: '100%'}}>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" className="mr-auto"/> 
                 <Nav id ="Menutitle">
                     <Nav.Link href="#home" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept</Nav.Link>
@@ -24,14 +24,22 @@ const MenuBar = (props) => {
                         />                
                     </Navbar.Brand>
                     <Nav>
-                        <Nav.Link href="#home">Accueil</Nav.Link>
-                        <Nav.Link href="#store">Boutique</Nav.Link>
-                        <Nav.Link href="#blog">Blog</Nav.Link>
-                        <Nav.Link href="#contact">Contact</Nav.Link>
+                        <Link href="/" passHref>
+                            <Nav.Link>Accueil</Nav.Link>
+                        </Link>
+                        <Link href="/store" passHref>
+                            <Nav.Link>Boutique</Nav.Link>
+                        </Link>
+                        <Link href="/blog" passHref>
+                            <Nav.Link>Blog</Nav.Link>
+                        </Link>
+                        <Link href="/contact" passHref>
+                            <Nav.Link>Contact</Nav.Link>
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>       
                  
-                <Navbar.Brand href="#store" className="ml-auto mr-auto">
+                <Navbar.Brand href="#store" className="ml-auto" id="panier">
                     <img
                         src="/icons/bag.png"
                         width="25px"
