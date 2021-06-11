@@ -17,10 +17,10 @@ const BannerCarousel = (props) => {
         alt={slide.imageAlt}
         height="400px"
         />
-        <Carousel.Caption className={styles.carousel_captions}>
+        {(slide.title != "none" && slide.label != "none") && <Carousel.Caption className={styles.carousel_captions}>
             <h3 className={styles.carouseltitle}>{slide.title}</h3>
-            <p>{slide.label}</p>
-        </Carousel.Caption>
+            <p className={styles.cardtextwrap}>{slide.label}</p>
+        </Carousel.Caption>}
   </Carousel.Item>
   );
     return (

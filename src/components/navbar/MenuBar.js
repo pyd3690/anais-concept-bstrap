@@ -2,12 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import {Navbar, Nav, Button, Badge} from 'react-bootstrap'
 //import 'bootstrap/dist/css/bootstrap.min.css';
-//import '.../styles/Home.module.css'
+import styles from './MenuBar.module.css'
 
 const MenuBar = (props) => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '5px', width: '100%'}}>
+            <Navbar className={styles.menuContainer} collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '5px', width: '100%'}}>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" className="mr-auto"/> 
                 <Nav id ="Menutitle">
                     <Nav.Link href="#home" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept</Nav.Link>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import {Image, Container, Row, Col, Card} from 'react-bootstrap'
+import {Card} from 'react-bootstrap'
 import styles from './Hero.module.css'
 import BannerCarousel from '../carousel/Carousel.js'
 
@@ -14,10 +14,10 @@ const HeroSection = (props) => {
                 <div className={styles.heroRightCol}>
                     <div className={styles.RightPicTop}>
                     <Card className="bg-dark text-white">
-                        <Card.Img src={props.topPicture.src} alt={props.topPicture.alt} />
-                        <Card.ImgOverlay>
-                            <Card.Title>{props.topPicture.title}</Card.Title>
-                            <Card.Text>
+                        <Card.Img className="img-fluid" src={props.topPicture.src} alt={props.topPicture.alt} />
+                        <Card.ImgOverlay className={styles.cardtext}>
+                            <Card.Title className={styles.cardtitlewrap}>{props.topPicture.title}</Card.Title>
+                            <Card.Text className={styles.cardtextwrap}>
                             {props.topPicture.caption}
                             </Card.Text>
                         </Card.ImgOverlay>
@@ -28,7 +28,7 @@ const HeroSection = (props) => {
                         text="light"
                         style={{ width: '18rem' }}
                         className="mb-2"
-                        style={{width: '100%', height: '100%', backgroundColor:'goldenrod'}}
+                        style={{width: '100%', height: '100%', backgroundColor:'#C2A33E'}}
                     >
                         <Card.Body>
                         <Card.Title className={styles.bottomPictureTitle}>{props.bottomPicture.title} </Card.Title>

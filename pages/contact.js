@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container-md" style={{paddingLeft: 0, paddingRight:0}}>
+      <main style={{overflow: 'hidden'}} id="container">
       <MenuBar itemNumber={0} />
       <div style={{height: "600px"}}></div>
       <Footer />

@@ -1,18 +1,20 @@
 /* Hero & Banner Section */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .heroSection{
     width: 100%;
     margin-top: 10px;
     background-color: lightgray;
     margin-left: 0px;
     margin-right: 0px;
-    height: 400px;   
+    height: 600px;   
     border-radius: 10px; 
     overflow: hidden;
   }
 
   .carousel{
       width: 63%;
-      height: 400px;
+      height: 600px;
       margin-right: 1%;
       background-color: white;
       margin-top: 10px;  
@@ -22,36 +24,73 @@
 
   .heroRightCol{
     width: 36%;
-    height: 400px;
+    height: 600px;
     background-color: white;
     margin-top: 10px;  
-    border-radius: 10px; 
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .RightPicTop{
+    font-family: 'Quicksand', sans-serif;
     width: 100%;
-    height: 50%;
-    background-color: goldenrod;
-    margin-bottom: 3%;  
-    border-radius: 10px; 
+    height: 300px;
+    background-color: white;
+    /* margin-bottom: 10px; */  
+    /* border-radius: 10px; */ 
     overflow: hidden;
 }
+
+/* .RTopImage{
+    height: 300px;
+    
+} */
+
 .RightPicBottom{
     width: 100%;
-    height: 47%;
+    height: 300px;
     background-color: beige;  
-    border-radius: 10px; 
+    /* border-radius: 10px;  */
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .bottomPictureTitle{
+    font-family: 'Quicksand', sans-serif;
     font-size: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 .bottomPictureText{
+    font-family: 'Quicksand', sans-serif;
     font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 
+
+.cardtitlewrap{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+.cardtextwrap{
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+    
+.cardtext{    
+    background-color: rgba(0, 0, 0, 0.3);
+    color: beige;
+    padding: 20px;
+}
   /* End Hero & Banner Section */
   
   
@@ -79,14 +118,31 @@
         margin-bottom: 4px;
         height: 175px;
     }
+    
+    .cardtext{    
+        padding: 10px;
+    }
+    /* .RTopImage{
+        height: 175px;
+    } */
 
     .RightPicBottom{
         height: 175px;
     }
     .bottomPictureTitle{
         font-size: 20px;
+        -webkit-line-clamp: 1;
     }
     .bottomPictureText{
-        font-size: 13px;
+        font-size: 14px;
+        -webkit-line-clamp: 5;
+    }
+    .cardtitlewrap{
+        font-size: 18px;
+        -webkit-line-clamp: 1;
+    }
+    .cardtextwrap{
+        font-size: 14px;
+        -webkit-line-clamp: 3;
     }
   }
