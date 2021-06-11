@@ -7,7 +7,7 @@ import BannerCarousel from '../carousel/Carousel.js'
 const HeroSection = (props) => {
     return (
         <>
-            <div className="d-flex flex-wrap" style={{width: '100%'}}>
+            <div className="d-flex flex-wrap" style={{width: '100%', marginTop: '0px'}}>
                 <div className={styles.carousel}>
                     <BannerCarousel slides={props.slides_data} />
                 </div>

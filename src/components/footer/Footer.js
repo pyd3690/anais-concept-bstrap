@@ -7,7 +7,7 @@ import styles from './Footer.module.css'
 const Footer = () => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='bottom' className="d-flex justify-content-center" style={{borderRadius: '5px', width: '100%'}}>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='bottom' className="d-flex justify-content-center" style={{borderRadius: '0px', width: '100%'}}>
                 <Nav className ={styles.footerlink}>
                     <Nav.Link href="#home" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept &#169; 2021</Nav.Link>
                 </Nav>
