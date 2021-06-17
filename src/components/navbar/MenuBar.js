@@ -10,7 +10,7 @@ const MenuBar = (props) => {
             <Navbar className={styles.menuContainer} collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '0px', width: '100%'}}>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" className="mr-auto" /> 
                 <Nav id ="Menutitle">
-                    <Nav.Link href="#home" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept</Nav.Link>
+                    <Nav.Link href="/" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept</Nav.Link>
                 </Nav>
                 <Navbar.Collapse id="responsive-navbar-nav" >
                     <Navbar.Brand href="#home" id = "logo">

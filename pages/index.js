@@ -118,8 +118,8 @@ export async function getStaticProps() {
   const res_top = await fetch('https://anais-backend.herokuapp.com/right-top-pictures')
   const res_bottom = await fetch('https://anais-backend.herokuapp.com/right-bottom-data')
   const res_banner = await fetch('https://anais-backend.herokuapp.com/banners')
-  const res_posts = await fetch('https://anais-backend.herokuapp.com/articles')
-  const res_products = await fetch('https://anais-backend.herokuapp.com/products')
+  const res_posts = await fetch('https://anais-backend.herokuapp.com/articles?_sort=updated_at:DESC')
+  const res_products = await fetch('https://anais-backend.herokuapp.com/products?_sort=updated_at:DESC')
 
   const slides0 = await res.json()
   const top_pic = await res_top.json()

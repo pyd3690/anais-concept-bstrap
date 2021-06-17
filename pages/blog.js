@@ -28,7 +28,7 @@ export default function BlogPage({slides, articles}) {
 
 export async function getStaticProps() {
   const res = await fetch('https://anais-backend.herokuapp.com/slide-blogs')
-  const res_posts = await fetch('https://anais-backend.herokuapp.com/articles')
+  const res_posts = await fetch('https://anais-backend.herokuapp.com/articles?_sort=updated_at:DESC')
 
   const slides0 = await res.json()
   const posts = await res_posts.json()
