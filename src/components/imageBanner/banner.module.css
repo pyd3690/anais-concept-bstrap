@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nixie+One&family=Tangerine:wght@700&display=swap');
+
+.section{
+    width: 70%;
+    font-family: 'Quicksand', sans-serif;
+    
+    margin-top: 3%;
+    /* background-color: lightgray; */
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;    
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #F2F2F2;
+  }
+    
+.cardtext{    
+    background-color: rgba(0, 0, 0, 0.025);
+    color: #BF9445;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 5px;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+  @media (max-width: 1024px) {
+    .section{
+      height: auto;
+      width: 85%;
+    }
+
+    .cardtext{
+      font-size: 25px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .section{
+      width: 100%;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      height: auto;
+    } 
+    .cardtext{    
+      padding: 10px;
+      font-size: 14px;
+    -webkit-line-clamp: 6;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #F2CB05;
+  }
+  }

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {Card} from 'react-bootstrap'
 import styles from './Hero.module.css'
 import BannerCarousel from '../carousel/Carousel.js'
+import ReactMarkdown from "react-markdown";
 
 const HeroSection = (props) => {
     return (
@@ -31,13 +32,13 @@ const HeroSection = (props) => {
                         style={{width: '100%', height: '100%', backgroundColor:'#C2A33E'}}
                     >
                         <Card.Body>
-                        <Card.Title className={styles.bottomPictureTitle}>{props.bottomPicture.title} </Card.Title>
-                        {
-                            props.bottomPicture.list.map((list_item) =>
-                            <Card.Text className={styles.bottomPictureText}>
-                            {list_item}
-                            </Card.Text>
-                            )}
+                            <Card.Title className={styles.bottomPictureTitle}>{props.bottomPicture.title} </Card.Title>
+                            <Card.Text >
+                                <div className={styles.markdown}>
+                                <ReactMarkdown>{props.bottomPicture.description}</ReactMarkdown> 
+                                </div>
+                                 
+                            </Card.Text>                                                  
                         </Card.Body>
                     </Card>
                     </div>

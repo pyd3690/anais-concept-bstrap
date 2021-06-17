@@ -20,6 +20,7 @@
       margin-top: 5px;  
       border-radius: 10px; 
       overflow: hidden;
+      border: 1px solid #adb5bd;
   }
 
   .heroRightCol{
@@ -72,6 +73,16 @@
     overflow: hidden;
 }
 
+div.markdown li{
+	margin-bottom: 3px;
+    font-size: 20px;
+}
+div.markdown a{
+    color: white;
+    text-decoration: underline;
+    
+}
+
 
 .cardtitlewrap{
     display: -webkit-box;
@@ -93,7 +104,25 @@
 }
   /* End Hero & Banner Section */
   
-  
+  @media (max-width: 1024px) {
+    div.markdown li{
+        margin-bottom: 3px;
+        font-size: 17px;
+    }
+
+    .RightPicTop{
+        height:50%;
+    }
+
+    .RightPicBottom{
+        height: 50%;
+    }
+
+    .heroRightCol{
+        height:600px;
+    }
+}
+
   @media (max-width: 767px) {
     .heroSection{
       margin-top: 4px;
@@ -137,6 +166,12 @@
         font-size: 14px;
         -webkit-line-clamp: 5;
     }
+
+    div.markdown li{
+        margin-bottom: 3px;
+        font-size: 14px;
+    }
+
     .cardtitlewrap{
         font-size: 18px;
         -webkit-line-clamp: 1;
