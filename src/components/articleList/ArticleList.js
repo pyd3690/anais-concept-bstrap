@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import {Button, CardDeck, Card} from 'react-bootstrap'
-import styles from './CardRow.module.css'
+import {Button, CardDeck, Card, CardGroup} from 'react-bootstrap'
+import styles from './ArticleList.module.css'
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 
 
-const CardRowSection = (props) => {
-    const card_data = props.cards
+const ArticleListing = (props) => {
+    const card_data = props.articles
     //console.log(card_data)
     const card_items = card_data.map((card) =>
-    <Card className={styles.cardContainer} key={card.image}>
+    <Card className={styles.cardContainer} key={card.image} >
         <Card.Img variant="top" src={card.image} className={styles.cardImg}/>
         <Card.Body>
         <Card.Title className={styles.cardTitle}>
@@ -35,19 +35,14 @@ const CardRowSection = (props) => {
     return (
         <>
         <div className={styles.section}>
-            <h2 className={styles.sectionTitle}> Nos Derniers Posts</h2>
-            <Link href="/blog" passHref>
-                <a>
-                    <h4 className={styles.sectionCall}>Decouvrez notre Blog</h4>
-                </a>
-            </Link>
-            <CardDeck>
+            <h2 className={styles.sectionTitle}> Nos Posts</h2>
+            <div className={styles.cardBox}>
                 {card_items}
-            </CardDeck> 
+            </div> 
         </div>
             
         </>
     )
 }
 
-export default CardRowSection
+export default ArticleListing

@@ -3,11 +3,11 @@
 .section{
     width: 70%;
     font-family: 'Quicksand', sans-serif;
-    margin-top: 3%;
+    margin-top: 30px;
     /* background-color: lightgray; */
     margin-left: auto;
     margin-right: auto;
-    height: 75.24vh;    
+    height: auto;    
     border-radius: 10px;
     overflow: hidden;
   }
@@ -15,11 +15,21 @@
   .sectionTitle{
     text-align: center;
     margin-bottom: 20px;
+    color: gray;
+  }
+
+  .cardBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
   }
 
   .cardContainer{
       border-radius: 10px;
       overflow: hidden;
+      width: 32%;
+      margin-right: 10px;
+      margin-bottom: 20px;
   }
 
   .cardImg{
@@ -51,26 +61,39 @@
 
   @media (max-width: 1024px) {
     .section{
-      height: 40.60vh;
+      height: auto;
       width: 85%;
     }
 
     .cardImg{
       height: 14.64vh;
     }
+
+    .cardContainer{
+      width: 40%;
+    }
+
+    .cardTitle{
+      font-size: 14px;
+    }
+
+    .cardContent{
+      font-size: 12px;
+    }
   }
 
   @media (max-width: 767px) {
     .section{
-      width: 85%;
+      width: 80%;
       margin-top: 30px;
       margin-bottom: 5px;
       height: auto;
     } 
-    
 
     .sectionTitle{
         font-size: 25px;
+        text-align: center;
+
     }
 
     .cardImg{
@@ -80,5 +103,21 @@
     .sectionCall{
       font-size: 18px;
       margin-bottom: 10px;
+    }
+    
+
+    .cardTitle{
+      font-size: 16px;
+    }
+
+    .cardContent{
+      font-size: 14px;
+    }
+    
+    .cardContainer{
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      
     }
   }

@@ -3,8 +3,10 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import MenuBar from '../src/components/navbar/MenuBar.js'
 import Footer from '../src/components/footer/Footer.js'
+import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
+import ArticleListing from '../src/components/articleList/ArticleList.js'
 
-export default function Home() {
+export default function BlogPage({slides, articles}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,9 +17,60 @@ export default function Home() {
 
       <main style={{overflow: 'hidden'}} id="container">
       <MenuBar itemNumber={0} />
-      <div style={{height: "600px"}}></div>
+      <CoverCarousel slides={slides} title="Le Journal d'Anais Concept"/>
+      <ArticleListing articles={articles} />
+      <div style={{height: "100px"}}></div>
       <Footer />
       </main>      
     </div>
   )
 }
+
+export async function getStaticProps() {
+  const res = await fetch('https://anais-backend.herokuapp.com/slide-blogs')
+  const res_posts = await fetch('https://anais-backend.herokuapp.com/articles')
+
+  const slides0 = await res.json()
+  const posts = await res_posts.json()
+
+  const slides = slides0.map(item => {
+      const container = {};
+      container['image'] = item.image.url;
+      container['imageAlt'] = item.imageAlt;
+      container['title'] = item.title_markdown;
+      container['label'] = item.label_markdown;
+      container['first'] = item.first;
+      return container;
+  })
+
+  var first_index = -1;
+  for(var i = 0; i < slides.length; i += 1) {
+      if(slides[i]['first'] === "yes") {
+          first_index = i;
+      }
+  }
+  if(first_index != -1){
+    var temp = slides[0]
+    slides[0] = slides[first_index];
+    slides[first_index] = temp;
+  }
+
+  const articles = posts.map(item => {
+    const container = {};
+    container['id'] = item.id;
+    container['image'] = item.cover.url;
+    container['title'] = item.title //.substring(0, 20) + "...";
+    container['content'] = item.content //.substring(0, 35) + "...";
+    container['lastUpdate'] = item.created_at;
+    return container;
+})
+
+  return {
+    props: {
+      slides,
+      articles,
+    },
+    revalidate: 10,
+  }
+}
+

@@ -175,6 +175,7 @@ export async function getStaticProps() {
 
   const articles_all = posts.map(item => {
     const container = {};
+    container['id'] = item.id;
     container['image'] = item.cover.url;
     container['title'] = item.title //.substring(0, 20) + "...";
     container['content'] = item.content //.substring(0, 35) + "...";
@@ -188,6 +189,7 @@ if(articles_all.length > 3){
 
   const products_all = products0.map(item => {
     const container = {};
+    container['id'] = item.id;
     container['image'] = item.image.url;
     container['name'] = item.name //.substring(0, 20) + "...";
     container['description'] = item.description //.substring(0, 35) + "...";
