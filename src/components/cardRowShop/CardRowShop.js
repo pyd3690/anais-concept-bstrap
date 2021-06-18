@@ -20,7 +20,9 @@ const CardRowShopSection = (props) => {
         <Card.Text className={styles.cardContent}>
             <ReactMarkdown>{card.description}</ReactMarkdown>
         </Card.Text>
-        <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>Voir</Button>
+        <Link href={"/products/"+card.id}>
+            <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>Voir</Button>
+        </Link>
         </Card.Body>
     </Card>
     );
