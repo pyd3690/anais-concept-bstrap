@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import {Badge, Image, Button} from 'react-bootstrap'
+import {Badge, Image, Button, InputGroup, FormControl} from 'react-bootstrap'
 import styles from './Product.module.css'
 import ReactMarkdown from "react-markdown";
 import Moment from 'react-moment';
@@ -27,6 +27,17 @@ const Product = (props) => {
             </Link>
             <div className={styles.content}>
                 Prix: {price} 
+            </div>
+            <div className={styles.quant}>
+                <InputGroup className="mb-3" >
+                    <InputGroup.Prepend>
+                        <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>-</Button>
+                    </InputGroup.Prepend>
+                    <FormControl aria-describedby="basic-addon1" placeholder="1" />
+                    <InputGroup.Append>
+                        <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>+</Button>
+                    </InputGroup.Append>
+                </InputGroup>
             </div>
             <div className={styles.contentDesc}>
                 <h4>Description:</h4>

@@ -19,6 +19,10 @@
     margin-bottom: 10px;
 }
 
+.quant{
+    width: 20%;
+}
+
 .moment{
     font-size: 23px;
     color: grey;
@@ -103,4 +107,8 @@
         font-size: 15px;
         margin-bottom: 30px;
       }
+    
+    .quant{
+        width: 40%;
+    }
 }
