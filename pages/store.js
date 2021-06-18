@@ -4,8 +4,10 @@ import styles from '../styles/Home.module.css'
 import MenuBar from '../src/components/navbar/MenuBar.js'
 import Footer from '../src/components/footer/Footer.js'
 import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
+import CategoryListing from '../src/components/categoryList/CategoryList.js'
 
-export default function StorePage({coverSlides}) {
+
+export default function StorePage({coverSlides, categories}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +19,8 @@ export default function StorePage({coverSlides}) {
       <main style={{overflow: 'hidden'}} id="container">
       <MenuBar itemNumber={0} />
       <CoverCarousel slides={coverSlides} title="Anais Concept Store & Catalogue"/>
-      <div style={{height: "600px"}}></div>
+      <CategoryListing categories={categories} />
+      <div style={{height: "200px"}}></div>
       <Footer />
       </main>      
     </div>
@@ -26,8 +29,10 @@ export default function StorePage({coverSlides}) {
 
 export async function getStaticProps() {
   const res = await fetch('https://anais-backend.herokuapp.com/store-slides')
+  const res_catg = await fetch('https://anais-backend.herokuapp.com/product-categories?_sort=updated_at:DESC')
 
   const slides0 = await res.json()
+  const categories0 = await res_catg.json()
 
   const slides = slides0.map(item => {
       const container = {};
@@ -51,10 +56,22 @@ export async function getStaticProps() {
     slides[first_index] = temp;
   }
 
+  const categories = categories0.map(item => {
+    const container = {};
+    container['id'] = item.id;
+    container['image'] = item.image.url;
+    container['name'] = item.name //.substring(0, 20) + "...";
+    container['description'] = item.description //.substring(0, 35) + "...";
+    container['lastUpdate'] = item.updated_at;
+    return container;
+})
+
+
   const coverSlides = slides;
   return {
     props: {
       coverSlides,
+      categories,
     },
     revalidate: 10,
   }
