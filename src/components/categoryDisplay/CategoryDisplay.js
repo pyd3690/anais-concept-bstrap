@@ -14,7 +14,7 @@ const CategoryDisplay = (props) => {
         <div className={styles.container}>
             <Link href="/store" passHref>
                 <a>
-                    <h4 className={styles.sectionCall}>&#60; Tous les categories</h4>
+                    <h4 className={styles.sectionCall}>&#60; Toutes les categories</h4>
                 </a>
             </Link>
             <h2 className={styles.sectionTitle}>
