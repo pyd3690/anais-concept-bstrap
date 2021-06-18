@@ -13,7 +13,7 @@ const MenuBar = (props) => {
                     <Nav.Link href="/" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept</Nav.Link>
                 </Nav>
                 <Navbar.Collapse id="responsive-navbar-nav" >
-                    <Navbar.Brand href="#home" id = "logo">
+                    <Navbar.Brand href="/" id = "logo">
                         <img
                             src="/icons/anais-logo2.png"
                             width="auto"
