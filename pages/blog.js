@@ -61,7 +61,7 @@ export async function getStaticProps() {
     container['image'] = item.cover.url;
     container['title'] = item.title //.substring(0, 20) + "...";
     container['content'] = item.content //.substring(0, 35) + "...";
-    container['lastUpdate'] = item.created_at;
+    container['lastUpdate'] = item.updated_at;
     return container;
 })
 

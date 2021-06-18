@@ -19,7 +19,10 @@ const ArticleListing = (props) => {
         <Card.Text className={styles.cardContent}>
             <ReactMarkdown>{card.content}</ReactMarkdown>
         </Card.Text>
-        <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>Lire &#62;</Button>
+        <Link href={"/posts/"+card.id}>
+            <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>Lire &#62;</Button>
+        </Link>
+        
         </Card.Body>
         <Card.Footer>
         <small className="text-muted">
