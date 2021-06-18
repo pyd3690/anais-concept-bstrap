@@ -7,7 +7,7 @@ import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
 import CategoryListing from '../src/components/categoryList/CategoryList.js'
 
 
-export default function EventPage({coverSlides, categories}) {
+export default function StorePage({coverSlides, categories}) {
   return (
     <div className={styles.container}>
       <Head>

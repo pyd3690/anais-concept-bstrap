@@ -36,6 +36,12 @@ const MenuBar = (props) => {
                         <Link href="/contact" passHref>
                             <Nav.Link>Contact</Nav.Link>
                         </Link>
+                        <Link href="/event" passHref>
+                            <Nav.Link style={{display: 'none'}}>
+                                Foire Aux Cadeaux 2021
+                                <Badge variant="warning" style={{marginLeft:'5px'}}>Hot</Badge>
+                            </Nav.Link>
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>       
                  

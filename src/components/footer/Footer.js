@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import {Navbar, Nav, Button, Badge} from 'react-bootstrap'
+import {Navbar, Nav, Tooltip, OverlayTrigger} from 'react-bootstrap'
 import styles from './Footer.module.css'
 
 
@@ -31,7 +31,24 @@ const Footer = () => {
                         
                     />                
                 </Navbar.Brand>
+                <Nav.Link>
+                    <div style={{color: "wheat", fontSize:'12px'}}>
+                        Powered By 
+                        <OverlayTrigger
+                        placement='right'
+                        overlay={
+                            <Tooltip >
+                             Ignitouch@gmail.com
+                            </Tooltip>
+                        }
+                        >
+                            <a href="mailto:ignitouch@gmail.com" style={{color: "wheat", fontWeight: "bold", decorationStyle:'none'}}>{' '}IgniTouch</a>
+                        </OverlayTrigger>
+                        {/* Powered By <Link href="mailto:ignitouch@gmail.com" passHref><a style={{color: "wheat", fontWeight: "bold", decorationStyle:'none'}}>IgniTouch</a></Link> */}
+                    </div>
+                </Nav.Link>
             </Navbar>
+            
         </>
     )
 }
