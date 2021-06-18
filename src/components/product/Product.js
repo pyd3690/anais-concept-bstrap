@@ -11,12 +11,12 @@ const Product = (props) => {
     console.log(price);
     return (
         <div className={styles.container}>
-            <Link href="/" passHref>
+            <Link href="/store" passHref>
                 <a>
                     <h4 className={styles.sectionCall}>&#60; Retour</h4>
                 </a>
             </Link>
-            <div><Image src={product_data.image} fluid className={styles.cover}/></div>
+            <div ><Image src={product_data.image} fluid className={styles.cover}/></div>
             <h3 className={styles.sectionTitle}>
                 <ReactMarkdown>{product_data.name}</ReactMarkdown> 
             </h3>                

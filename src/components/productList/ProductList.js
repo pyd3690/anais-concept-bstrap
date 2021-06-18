@@ -26,7 +26,7 @@ const ProductListing = (props) => {
                 <ReactMarkdown>{card.description}</ReactMarkdown>
             </Card.Text>
         }        
-        <Link href="#category"> 
+        <Link href={"/products/"+card.id}> 
             <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>Voir</Button>
         </Link>        
         </Card.Body>

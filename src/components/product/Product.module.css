@@ -10,8 +10,8 @@
 }
 
 .cover{
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 55.32vh;
     margin-top: 5px;  
     border-radius: 15px;
     margin-left: auto;
@@ -63,6 +63,11 @@
 @media (max-width: 1024px) {
     .container{
         width: 60%;
+    }
+
+    .cover{
+        width: auto;
+    height: 30.96vh;
     }
 }
 
