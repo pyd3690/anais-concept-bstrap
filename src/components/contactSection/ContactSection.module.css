@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.section{
+    width: 50%;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 30px;
+    /* background-color: lightgray; */
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;    
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .sectionTitle{
+    text-align: center;
+    margin-bottom: 20px;
+    color: gray;
+  }
+
+  .cardBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .cardContainer{
+      border-radius: 10px;
+      overflow: hidden;
+      width: 32%;
+      margin-right: 10px;
+      margin-bottom: 20px;
+  }
+
+  .cardImg{
+    height: 31.93vh;
+  }
+  
+
+  .sectionCall{
+    text-align: center;
+    color: goldenrod;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+
+  .cardTitle{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+  .cardContent{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+  @media (max-width: 1024px) {
+    .section{
+      height: auto;
+      width: 60%;
+    }
+
+    .cardImg{
+      height: 14.64vh;
+    }
+
+    .cardContainer{
+      width: 40%;
+    }
+
+    .cardTitle{
+      font-size: 14px;
+    }
+
+    .cardContent{
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .section{
+      width: 80%;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      height: auto;
+    } 
+
+    .sectionTitle{
+        font-size: 25px;
+        text-align: center;
+
+    }
+
+    .cardImg{
+      height: 31.25vh;
+    }
+    
+    .sectionCall{
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+
+    .cardTitle{
+      font-size: 16px;
+    }
+
+    .cardContent{
+      font-size: 14px;
+    }
+    
+    .cardContainer{
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+  }

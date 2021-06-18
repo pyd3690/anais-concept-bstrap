@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import MenuBar from '../src/components/navbar/MenuBar.js'
 import Footer from '../src/components/footer/Footer.js'
 import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
+import ContactSection from '../src/components/contactSection/ContactSection.js'
 
 export default function ContactPage({coverSlides}) {
   return (
@@ -17,7 +18,8 @@ export default function ContactPage({coverSlides}) {
       <main style={{overflow: 'hidden'}} id="container">
       <MenuBar itemNumber={0} />
       <CoverCarousel slides={coverSlides} title="Contactez Nous"/>
-      <div style={{height: "600px"}}></div>
+      <ContactSection />
+      <div style={{height: "200px"}}></div>
       <Footer />
       </main>      
     </div>

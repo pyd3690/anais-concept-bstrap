@@ -9,9 +9,9 @@ const Footer = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='bottom' className="d-flex justify-content-center" style={{borderRadius: '0px', width: '100%'}}>
                 <Nav className ={styles.footerlink}>
-                    <Nav.Link href="#home" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept &#169; 2021</Nav.Link>
+                    <Nav.Link href="/" style={{color: "wheat", marginLeft: "5px"}}>Anais Concept &#169; 2021</Nav.Link>
                 </Nav>
-                <Navbar.Brand href="#home" className={styles.iconC}>
+                <Navbar.Brand href="https://www.facebook.com/anaisconceptbiz/" className={styles.iconC} target="_blank" >
                     <img className={styles.icon}
                         src="/icons/facebook.png"
                         width="auto"
@@ -21,7 +21,7 @@ const Footer = () => {
                         
                     />                
                 </Navbar.Brand>
-                <Navbar.Brand href="#home" className={styles.iconC}>
+                <Navbar.Brand href="/contact" className={styles.iconC}>
                     <img className={styles.icon}
                         src="/icons/whatsapp.png"
                         width="auto"
