@@ -18,7 +18,7 @@ const ProductListing = (props) => {
         </Card.Title>
         {(card.price !== null && card.price !== undefined) &&
             <Card.Text className={styles.cardContent}>
-               Prix: {card.price}
+               Prix: {card.price} FCFA
             </Card.Text>
         }      
         {(card.description !== null && card.description !== undefined) &&
