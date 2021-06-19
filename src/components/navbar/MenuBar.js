@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 import {Navbar, Nav, Button, Badge} from 'react-bootstrap'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './MenuBar.module.css'
 
 const MenuBar = (props) => {
+    const router = useRouter()
+    const currentRoute = router.asPath
     return (
         <>
             <Navbar className={styles.menuContainer} collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '0px', width: '100%'}}>
@@ -23,7 +26,7 @@ const MenuBar = (props) => {
                             
                         />                
                     </Navbar.Brand>
-                    <Nav>
+                    <Nav activeKey={currentRoute}>
                         <Link href="/" passHref>
                             <Nav.Link>Accueil</Nav.Link>
                         </Link>
@@ -36,8 +39,8 @@ const MenuBar = (props) => {
                         <Link href="/contact" passHref>
                             <Nav.Link>Contact</Nav.Link>
                         </Link>
-                        <Link href="/event" passHref>
-                            <Nav.Link style={{display: props.showEvent}}>
+                        <Link href="/event" passHref >
+                            <Nav.Link style={{display: props.showEvent, fontWeight: 'bold'}} >
                                 {props.eventTitle}
                                 <Badge variant="warning" style={{marginLeft:'5px'}}>Hot</Badge>
                             </Nav.Link>
@@ -45,7 +48,7 @@ const MenuBar = (props) => {
                     </Nav>
                 </Navbar.Collapse>       
                  
-                <Navbar.Brand href="#store" className="ml-auto" id="panier">
+                <Navbar.Brand href="/cart" className="ml-auto" id="panier">
                     <img
                         src="/icons/bag.png"
                         width="25px"
@@ -53,7 +56,7 @@ const MenuBar = (props) => {
                         className="d-inline-block align-top"
                         alt="Anais logo"
                     />      
-                    <Badge variant="dark" className="d-inline-block align-top">{props.itemNumber}</Badge>          
+                    <a><Badge variant="dark" className="d-inline-block align-top">{props.itemNumber}</Badge></a>          
                 </Navbar.Brand>
             </Navbar>
         </>

@@ -4,3 +4,11 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
 }
+
+.event{
+    margin-left: 1.7vw;
+}
+
+.active {
+    color: yellow;
+  }
