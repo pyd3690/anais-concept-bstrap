@@ -33,7 +33,9 @@
   }
 
   .cardImg{
-    height: auto;
+    
+    height: 31.93vh;
+    width: auto;
   }
   
 
@@ -66,7 +68,7 @@
     }
 
     .cardImg{
-      height: auto;
+      height: 14.64vh;
     }
 
     .cardContainer{

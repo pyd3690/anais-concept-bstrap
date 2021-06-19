@@ -34,6 +34,7 @@
 
   .cardImg{
     height: 31.93vh;
+    width: auto;
   }
   
 
@@ -97,7 +98,7 @@
     }
 
     .cardImg{
-      height: 31.25vh;
+      height: auto;
     }
     
     .sectionCall{

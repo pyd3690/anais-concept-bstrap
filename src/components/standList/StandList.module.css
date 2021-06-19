@@ -34,6 +34,7 @@
 
   .cardImg{
     height: 31.93vh;
+    width: auto;
   }
   
 
@@ -84,7 +85,7 @@
 
   @media (max-width: 767px) {
     .section{
-      width: 80%;
+      width: 85%;
       margin-top: 30px;
       margin-bottom: 5px;
       height: auto;
@@ -97,7 +98,7 @@
     }
 
     .cardImg{
-      height: 31.25vh;
+      height: auto;
     }
     
     .sectionCall{
