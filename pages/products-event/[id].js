@@ -5,7 +5,7 @@ import MenuBar from '../../src/components/navbar/MenuBar.js'
 import Footer from '../../src/components/footer/Footer.js'
 import Product from '../../src/components/productEvent/Product.js'
 
-function ProductPage({ product, categoryID, showEvent }) {
+function ProductPage({ product, categoryID, showEvent, eventTitle}) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -20,7 +20,7 @@ function ProductPage({ product, categoryID, showEvent }) {
           </Head>
     
           <main  style={{overflow: 'hidden'}} id="container">
-            <MenuBar itemNumber={0} showEvent= {showEvent}/>
+            <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
             <div>Loading...</div>
             <Footer />
           </main>      
@@ -31,13 +31,13 @@ function ProductPage({ product, categoryID, showEvent }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Anais Concept</title>
+        <title>Anais Concept - Product {product.name}</title>
         <meta name="description" content="A vos risques et plaisirs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} showEvent= {showEvent}/>
+        <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
         <Product product={product} categoryID={categoryID}/>
         <div style={{height: "300px"}}></div> 
         <Footer />
@@ -71,6 +71,7 @@ export async function getStaticProps({ params }) {
   const res_event = await fetch('https://anais-backend.herokuapp.com/events')
 const events = await res_event.json()
 const showEvent = events.length === 0 ?'none':'inline';
+const eventTitle = events.length === 0 ? "No Event": events[0].name;
 
     product['id'] = product1.id;
     product['image'] = product1.image.url;
@@ -83,7 +84,7 @@ const showEvent = events.length === 0 ?'none':'inline';
 
   const categoryID = product1.event_category.id
   return {
-    props: { product, categoryID, showEvent },
+    props: { product, categoryID, showEvent, eventTitle},
     revalidate: 10,
   }
 }

@@ -10,7 +10,7 @@ import ContactSection from '../src/components/contactHome/contactHome.js'
 import BannerSection from '../src/components/imageBanner/banner.js'
 
 
-export default function Home({slides, topPicData, bottomPicData, products, articles, bannerData, showEvent}) {
+export default function Home({slides, topPicData, bottomPicData, products, articles, bannerData, showEvent, eventTitle}) {
   //console.log(articles);
   return (
     <div className={styles.container}>
@@ -21,7 +21,7 @@ export default function Home({slides, topPicData, bottomPicData, products, artic
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} showEvent= {showEvent}/>
+        <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
         <HeroSection slides_data={slides} topPicture={topPicData} bottomPicture={bottomPicData}/>
         <CardRowShopSection cards={products}/>
         <CardRowSection cards={articles}/>
@@ -44,6 +44,7 @@ export async function getStaticProps() {
   const res_event = await fetch('https://anais-backend.herokuapp.com/events')
   const events = await res_event.json()
   const showEvent = events.length === 0 ?'none':'inline';
+  const eventTitle = events.length === 0 ? "No Event": events[0].name;
 
   const slides0 = await res.json()
   const top_pic = await res_top.json()
@@ -135,6 +136,7 @@ if(articles_all.length > 3){
       articles,
       products,
       showEvent,
+      eventTitle,
     },
     revalidate: 10,
   }

@@ -37,7 +37,7 @@ export default function EventPage({eventTitle, eventDescription, coverSlides, st
       </Head>
 
       <main style={{overflow: 'hidden'}} id="container">
-      <MenuBar itemNumber={0} showEvent = {showEvent}/>
+      <MenuBar itemNumber={0} showEvent = {showEvent} eventTitle={eventTitle}/>
       <CoverCarousel slides={coverSlides} title={eventTitle}/>
       <StandListing stands={stands} eventDescription={eventDescription}/>
       <div style={{height: "200px"}}></div>

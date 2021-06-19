@@ -5,7 +5,7 @@ import MenuBar from '../../src/components/navbar/MenuBar.js'
 import Footer from '../../src/components/footer/Footer.js'
 import StandDisplay from '../../src/components/standDisplay/StandDisplay.js'
 
-function StandPage({ stand, categories, showEvent }) {
+function StandPage({ stand, categories, showEvent, eventTitle}) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -20,7 +20,7 @@ function StandPage({ stand, categories, showEvent }) {
           </Head>
     
           <main  style={{overflow: 'hidden'}} id="container">
-            <MenuBar itemNumber={0} showEvent= {showEvent}/>
+            <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
             <div>Loading...</div>
             <Footer />
           </main>      
@@ -31,13 +31,13 @@ function StandPage({ stand, categories, showEvent }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Anais Concept</title>
+        <title>Anais Concept - Stand {stand.name}</title>
         <meta name="description" content="A vos risques et plaisirs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} showEvent= {showEvent}/>
+        <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
         <StandDisplay stand={stand} categories={categories}/>
         <div style={{height: "150px"}}></div> 
         <Footer />
@@ -68,6 +68,7 @@ export async function getStaticProps({ params }) {
   const res_event = await fetch('https://anais-backend.herokuapp.com/events')
   const events = await res_event.json()
   const showEvent = events.length === 0 ?'none':'inline';
+  const eventTitle = events.length === 0 ? "No Event": events[0].name;
 
   const stand1 = await res.json()
   
@@ -89,7 +90,7 @@ export async function getStaticProps({ params }) {
     //console.log(product);
   // Pass product data to the page via props
   return {
-    props: { stand, categories, showEvent},
+    props: { stand, categories, showEvent, eventTitle},
     revalidate: 10,
   }
 }

@@ -38,7 +38,7 @@ const MenuBar = (props) => {
                         </Link>
                         <Link href="/event" passHref>
                             <Nav.Link style={{display: props.showEvent}}>
-                                Foire Aux Cadeaux 2021
+                                {props.eventTitle}
                                 <Badge variant="warning" style={{marginLeft:'5px'}}>Hot</Badge>
                             </Nav.Link>
                         </Link>

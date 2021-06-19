@@ -6,7 +6,7 @@ import Footer from '../src/components/footer/Footer.js'
 import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
 import ArticleListing from '../src/components/articleList/ArticleList.js'
 
-export default function BlogPage({slides, articles, showEvent}) {
+export default function BlogPage({slides, articles, showEvent, eventTitle}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +16,7 @@ export default function BlogPage({slides, articles, showEvent}) {
       </Head>
 
       <main style={{overflow: 'hidden'}} id="container">
-      <MenuBar itemNumber={0} showEvent= {showEvent}/>
+      <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
       <CoverCarousel slides={slides} title="Le Journal d'Anais Concept"/>
       <ArticleListing articles={articles} />
       <div style={{height: "100px"}}></div>
@@ -32,6 +32,7 @@ export async function getStaticProps() {
   const res_event = await fetch('https://anais-backend.herokuapp.com/events')
   const events = await res_event.json()
   const showEvent = events.length === 0 ?'none':'inline';
+  const eventTitle = events.length === 0 ? "No Event": events[0].name;
 
   const slides0 = await res.json()
   const posts = await res_posts.json()
@@ -73,6 +74,7 @@ export async function getStaticProps() {
       slides,
       articles,
       showEvent,
+      eventTitle,
     },
     revalidate: 10,
   }
