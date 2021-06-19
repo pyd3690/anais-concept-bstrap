@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 .section{
-    width: 70%;
+    width: 100%;
     font-family: 'Quicksand', sans-serif;
     margin-top: 30px;
-    padding-top: 20px;
-    background-color: #f8f8f8;
     /* background-color: lightgray; */
     margin-left: auto;
     margin-right: auto;
@@ -35,7 +33,7 @@
   }
 
   .cardImg{
-    height: 31.93vh;
+    height: auto;
   }
   
 
@@ -68,7 +66,7 @@
     }
 
     .cardImg{
-      height: 14.64vh;
+      height: auto;
     }
 
     .cardContainer{
@@ -99,7 +97,7 @@
     }
 
     .cardImg{
-      height: 31.25vh;
+      height: auto;
     }
     
     .sectionCall{
