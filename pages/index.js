@@ -9,87 +9,8 @@ import CardRowShopSection from '../src/components/cardRowShop/CardRowShop.js'
 import ContactSection from '../src/components/contactHome/contactHome.js'
 import BannerSection from '../src/components/imageBanner/banner.js'
 
-/* const slides = [
-  {
-    image: '/pictures/hero/hero4.jpg',
-    imageAlt: 'hero4',
-    title: 'Anais Concept vous comble',
-    label: 'Nous vous offrons du bohneur sur mesure'
-  },
-  {
-    image: '/pictures/hero/hero2.jpg',
-    imageAlt: 'hero2',
-    title: 'Anais Concept vous fais redecouvrir les cadeaux',
-    label: 'En matiere de cadeaux l\'habit peut faire le moine'
-  },  
-  {
-    image: '/pictures/hero/hero6.jpg',
-    imageAlt: 'hero6',
-    title: 'none',//'Un cadeau en dit beaucoup',
-    label: 'none', //'Apprecions un peu plus nos proches'
-  }
-] */
 
-/* const topPicture_data = {
-  src: "/pictures/hero/hero1.jpg",
-  alt: "hero1",
-  title: "Le bohneur sur Mesure",
-  caption: "Rien n'est trop beau pour vos proches. Nous ne menageons aucun effort pour vous le prouver"
-} */
-
-/* const bottomPicture_data = {
-  title: "Anais Concept c'est aussi",
-  list: ["Des Conseils en cadeaux", 
-    "Du Mangement d'evenements",
-    "Du Design d'emballages"]
-} */
-
-const cards_data = [
-  {
-    image: '/pictures/blog/blog1.jpg',
-    title: 'Title1',
-    content: 'Description 1 for display and test',
-    lastUpdate: 'Last updated 1 minutes ago'
-  },
-  {
-    image: '/pictures/blog/blog2.jpg',
-    title: 'Title2',
-    content: 'Description 2 for display and test',
-    lastUpdate: 'Last updated 2 minutes ago'
-  }, 
-  {
-    image: '/pictures/blog/blog3.jpg',
-    title: 'Title3',
-    content: 'Description 3 for display and test',
-    lastUpdate: 'Poste 3 minutes ago'
-  }
-]
-
-const cards_data_shop = [
-  {
-    image: '/pictures/shop/shop1.jpeg',
-    name: 'Item 1',
-    description: 'Description 1 for display and test',
-  },
-  {
-    image: '/pictures/shop/shop2.jpeg',
-    name: 'Item2 - 3500 FCFA',
-    description: 'Description 2 for display and test',
-  }, 
-  {
-    image: '/pictures/shop/shop3.jpeg',
-    name: 'Item 3',
-    price: '5000',
-    description: 'Description 3 for display and test',
-  }
-]
-
-const banner_data = {
-  image: '/pictures/hero/banner.jpg',
-  caption: "Le cadeau n'a rien à voir avec son prix, il tient tout entier dans l'intention et la beauté du geste. Si humble soit-il, il est comme un émissaire de la personne et garde sur lui son empreinte"
-}
-
-export default function Home({slides, topPicData, bottomPicData, products, articles, bannerData}) {
+export default function Home({slides, topPicData, bottomPicData, products, articles, bannerData, showEvent}) {
   //console.log(articles);
   return (
     <div className={styles.container}>
@@ -100,7 +21,7 @@ export default function Home({slides, topPicData, bottomPicData, products, artic
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} />
+        <MenuBar itemNumber={0} showEvent= {showEvent}/>
         <HeroSection slides_data={slides} topPicture={topPicData} bottomPicture={bottomPicData}/>
         <CardRowShopSection cards={products}/>
         <CardRowSection cards={articles}/>
@@ -120,6 +41,9 @@ export async function getStaticProps() {
   const res_banner = await fetch('https://anais-backend.herokuapp.com/banners')
   const res_posts = await fetch('https://anais-backend.herokuapp.com/articles?_sort=updated_at:DESC')
   const res_products = await fetch('https://anais-backend.herokuapp.com/products?_sort=updated_at:DESC')
+  const res_event = await fetch('https://anais-backend.herokuapp.com/events')
+  const events = await res_event.json()
+  const showEvent = events.length === 0 ?'none':'inline';
 
   const slides0 = await res.json()
   const top_pic = await res_top.json()
@@ -210,6 +134,7 @@ if(articles_all.length > 3){
       bannerData,
       articles,
       products,
+      showEvent,
     },
     revalidate: 10,
   }

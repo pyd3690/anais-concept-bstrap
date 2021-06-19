@@ -5,7 +5,7 @@ import MenuBar from '../../src/components/navbar/MenuBar.js'
 import Footer from '../../src/components/footer/Footer.js'
 import Product from '../../src/components/product/Product.js'
 
-function ProductPage({ product }) {
+function ProductPage({ product, showEvent }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -20,7 +20,7 @@ function ProductPage({ product }) {
           </Head>
     
           <main  style={{overflow: 'hidden'}} id="container">
-            <MenuBar itemNumber={0} />
+            <MenuBar itemNumber={0} showEvent= {showEvent}/>
             <div>Loading...</div>
             <Footer />
           </main>      
@@ -37,7 +37,7 @@ function ProductPage({ product }) {
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} />
+        <MenuBar itemNumber={0} showEvent= {showEvent}/>
         <Product product={product}/>
         <div style={{height: "300px"}}></div> 
         <Footer />
@@ -66,6 +66,11 @@ export async function getStaticProps({ params }) {
     const productId = params.id
   const res = await fetch('https://anais-backend.herokuapp.com/products/'+ productId.toString())
   const product1 = await res.json()
+
+  const res_event = await fetch('https://anais-backend.herokuapp.com/events')
+  const events = await res_event.json()
+  const showEvent = events.length === 0 ?'none':'inline';
+
   const product =  {};
 
     product['id'] = product1.id;
@@ -77,7 +82,7 @@ export async function getStaticProps({ params }) {
     //console.log(product);
   // Pass product data to the page via props
   return {
-    props: { product },
+    props: { product, showEvent },
     revalidate: 10,
   }
 }

@@ -7,7 +7,7 @@ import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
 import CategoryListing from '../src/components/categoryList/CategoryList.js'
 
 
-export default function EventPage({coverSlides, categories}) {
+export default function StorePage({coverSlides, categories, showEvent}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +17,7 @@ export default function EventPage({coverSlides, categories}) {
       </Head>
 
       <main style={{overflow: 'hidden'}} id="container">
-      <MenuBar itemNumber={0} />
+      <MenuBar itemNumber={0} showEvent={showEvent}/>
       <CoverCarousel slides={coverSlides} title="Anais Concept Store & Catalogue"/>
       <CategoryListing categories={categories} />
       <div style={{height: "200px"}}></div>
@@ -30,6 +30,9 @@ export default function EventPage({coverSlides, categories}) {
 export async function getStaticProps() {
   const res = await fetch('https://anais-backend.herokuapp.com/store-slides')
   const res_catg = await fetch('https://anais-backend.herokuapp.com/product-categories?_sort=updated_at:DESC')
+  const res_event = await fetch('https://anais-backend.herokuapp.com/events')
+  const events = await res_event.json()
+  const showEvent = events.length === 0 ?'none':'inline';
 
   const slides0 = await res.json()
   const categories0 = await res_catg.json()
@@ -72,6 +75,7 @@ export async function getStaticProps() {
     props: {
       coverSlides,
       categories,
+      showEvent,
     },
     revalidate: 10,
   }

@@ -29,6 +29,12 @@ a {
   display:none;
 }
 
+.noEvent{
+  font-family: 'Quicksand', sans-serif; /* 'Pacifico', cursive; */
+  text-align: center;
+  margin-top: 50px;
+}
+
 .footerlink{
   font-family: 'Quicksand', sans-serif; /* 'Pacifico', cursive; */
   font-size: 20px;
@@ -50,6 +56,11 @@ a {
   #container{
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .noEvent{
+    font-family: 'Quicksand', sans-serif; /* 'Pacifico', cursive; */
+    font-size: 25px;
   }
 }
 

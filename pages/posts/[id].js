@@ -5,7 +5,7 @@ import MenuBar from '../../src/components/navbar/MenuBar.js'
 import Footer from '../../src/components/footer/Footer.js'
 import Post from '../../src/components/post/Post.js'
 
-function PostPage({ post }) {
+function PostPage({ post, showEvent }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -20,7 +20,7 @@ function PostPage({ post }) {
           </Head>
     
           <main  style={{overflow: 'hidden'}} id="container">
-            <MenuBar itemNumber={0} />
+            <MenuBar itemNumber={0} showEvent= {showEvent}/>
             <div>Loading...</div>
             <Footer />
           </main>      
@@ -37,7 +37,7 @@ function PostPage({ post }) {
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} />
+        <MenuBar itemNumber={0} showEvent= {showEvent}/>
         <Post article={post}/>
         <div style={{height: "300px"}}></div> 
         <Footer />
@@ -66,6 +66,11 @@ export async function getStaticProps({ params }) {
     const postId = params.id
   const res = await fetch('https://anais-backend.herokuapp.com/articles/'+ postId.toString())
   const post1 = await res.json()
+
+  const res_event = await fetch('https://anais-backend.herokuapp.com/events')
+  const events = await res_event.json()
+  const showEvent = events.length === 0 ?'none':'inline';
+
   const post =  {};
 
     post['id'] = post1.id;
@@ -76,7 +81,7 @@ export async function getStaticProps({ params }) {
     
   // Pass post data to the page via props
   return {
-    props: { post },
+    props: { post, showEvent },
     revalidate: 10,
   }
 }

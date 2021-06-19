@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
+
+.container{
+    font-family: 'Quicksand', sans-serif;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cover{
+    width: auto;
+    height: 41.32vh;
+    margin-top: 5px;  
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    border: 1px solid gray;
+}
+
+.moment{
+    font-size: 23px;
+    color: grey;
+    padding: 10px;
+}
+
+.content{
+    margin-top: 0;
+    font-size: 25px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.sectionTitle{
+    margin-top: 20px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #BF9004;
+  } 
+
+  .sectionCall{
+    text-align: left;
+    color: #58555A;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    margin-bottom: 60px;
+    margin-top: 25px;
+    text-decoration: none;
+  }
+
+@media (max-width: 1024px) {
+    .container{
+        width: 100%;
+        padding: 5%;
+        margin-top: 0;
+    }
+
+    .cover{
+        height: 14.64vh;
+        width: 60%;
+    }
+}
+
+@media (max-width: 767px) {
+    .container{
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 5px;
+    }
+    
+    .cover{
+        height: 31.06vh;
+        width: 100%;
+        margin-top: 2px;
+    }      
+
+    .sectionTitle{
+        font-family: 'Quicksand', sans-serif;
+        font-size: 25px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .moment{
+        font-size: 18px;
+    }
+    .content{
+        font-size: 18px;
+    }   
+    
+    .sectionCall{
+        font-size: 15px;
+        margin-bottom: 30px;
+      }
+}

@@ -3,9 +3,9 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import MenuBar from '../../src/components/navbar/MenuBar.js'
 import Footer from '../../src/components/footer/Footer.js'
-import CategoryDisplay from '../../src/components/categoryDisplay/CategoryDisplay.js'
+import CategoryDisplay from '../../src/components/categoryEventDisplay/CategoryDisplay.js'
 
-function CategoryPage({ products, category, showEvent }) {
+function EventCategoryPage({ products, category, standID, showEvent }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -38,7 +38,7 @@ function CategoryPage({ products, category, showEvent }) {
 
       <main  style={{overflow: 'hidden'}} id="container">
         <MenuBar itemNumber={0} showEvent= {showEvent}/>
-        <CategoryDisplay category={category} products={products}/>
+        <CategoryDisplay category={category} products={products} stand={standID}/>
         <div style={{height: "150px"}}></div> 
         <Footer />
       </main>      
@@ -48,10 +48,9 @@ function CategoryPage({ products, category, showEvent }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-    const res = await fetch('https://anais-backend.herokuapp.com/product-categories')
+    const res = await fetch('https://anais-backend.herokuapp.com/event-categories')
     const categories = await res.json()
-
-
+  
     // Get the paths we want to pre-render based on posts
     const paths = categories.map((category) => ({
       params: { id: category.id.toString() },
@@ -65,7 +64,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
     const categoryId = params.id
-  const res = await fetch('https://anais-backend.herokuapp.com/product-categories/'+ categoryId.toString())
+  const res = await fetch('https://anais-backend.herokuapp.com/event-categories/'+ categoryId.toString())
 
   const category1 = await res.json()
 
@@ -79,7 +78,7 @@ const showEvent = events.length === 0 ?'none':'inline';
   category['name'] = category1.name //.substring(0, 20) + "...";
   category['description'] = category1.description //.substring(0, 35) + "...";
 
-  var products0 = category1.products
+  var products0 = category1.event_products
   const products = products0.map(item => {
     const container = {};
     container['id'] = item.id;
@@ -90,12 +89,14 @@ const showEvent = events.length === 0 ?'none':'inline';
     container['category'] = category1.name;
     return container;
   })
+
+  const standID = category1.event_stand.id;
     //console.log(product);
   // Pass product data to the page via props
   return {
-    props: { category, products, showEvent },
+    props: { category, products, standID, showEvent },
     revalidate: 10,
   }
 }
 
-export default CategoryPage
+export default EventCategoryPage

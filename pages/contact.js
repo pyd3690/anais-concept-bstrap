@@ -6,7 +6,7 @@ import Footer from '../src/components/footer/Footer.js'
 import CoverCarousel from '../src/components/carouselCover/CarouselCover.js'
 import ContactSection from '../src/components/contactSection/ContactSection.js'
 
-export default function ContactPage({coverSlides}) {
+export default function ContactPage({coverSlides, showEvent}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +16,7 @@ export default function ContactPage({coverSlides}) {
       </Head>
 
       <main style={{overflow: 'hidden'}} id="container">
-      <MenuBar itemNumber={0} />
+      <MenuBar itemNumber={0} showEvent= {showEvent} />
       <CoverCarousel slides={coverSlides} title="Contactez Nous"/>
       <ContactSection />
       <div style={{height: "200px"}}></div>
@@ -28,6 +28,9 @@ export default function ContactPage({coverSlides}) {
 
 export async function getStaticProps() {
   const res = await fetch('https://anais-backend.herokuapp.com/contact-slides')
+  const res_event = await fetch('https://anais-backend.herokuapp.com/events')
+  const events = await res_event.json()
+  const showEvent = events.length === 0 ?'none':'inline';
 
   const slides0 = await res.json()
 
@@ -57,6 +60,7 @@ export async function getStaticProps() {
   return {
     props: {
       coverSlides,
+      showEvent,
     },
     revalidate: 10,
   }
