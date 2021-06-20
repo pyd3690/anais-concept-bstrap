@@ -62,11 +62,19 @@ class MyApp extends App {
         () => Cookie.set("cart", this.state.cart.items)
       );
     } else {
-      var newList = this.state.cart.items.map((item) =>
+      var newList = []
+      for (var i = 0; i < items.length; i++){
+        newList[i] = items[i];
+        if(items[i].id === item.id && items[i].name === item.name && items[i].category === item.category){
+          newList[i].quantity = items[i].quantity + items.sentQuantity;
+        }        
+      }
+      
+      /* this.state.cart.items.map((item) =>
         (newItem.id === item.id && newItem.name === item.name && newItem.category === item.category)
           ? Object.assign({}, item, { quantity: item.quantity + item.sentQuantity })
           : item
-      )
+      ) */
       this.setState(
         {
           cart: {
@@ -85,11 +93,18 @@ class MyApp extends App {
     //if not in cart, add item if item is found increase quanity ++
     const newItem = items.find((i) => i.id === item.id && i.name === item.name && i.category === item.category);
 
-    var newList = this.state.cart.items.map((item) =>
+    var newList = []
+      for (var i = 0; i < items.length; i++){
+        newList[i] = items[i];
+        if(items[i].id === item.id && items[i].name === item.name && items[i].category === item.category){
+          newList[i].quantity = items[i].quantity + 1;
+        }        
+      }
+    /* var newList = this.state.cart.items.map((item) =>
         (newItem.id === item.id && newItem.name === item.name && newItem.category === item.category)
           ? Object.assign({}, item, { quantity: item.quantity + 1 })
           : item
-      )
+      ) */
       this.setState(
         {
           cart: {
