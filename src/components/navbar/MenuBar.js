@@ -11,6 +11,7 @@ const MenuBar = (props) => {
     const router = useRouter()
     const currentRoute = router.asPath
     const appContext = useContext(AppContext);
+    const { cart } = appContext;
 
     return (
         <>
@@ -60,7 +61,7 @@ const MenuBar = (props) => {
                         className="d-inline-block align-top"
                         alt="Anais logo"
                     />      
-                    <a className={styles.cart}><Badge variant="dark" className="d-inline-block align-top">{appContext.cart.total} FCFA</Badge></a>          
+                    <a className={styles.cart}><Badge variant="dark" className="d-inline-block align-top">{appContext.getCartTotal(cart.items)} FCFA</Badge></a>          
                 </Navbar.Brand>
             </Navbar>
         </>
