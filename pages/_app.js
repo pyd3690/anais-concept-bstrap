@@ -116,6 +116,14 @@ class MyApp extends App {
     );
   };
 
+  getCartTotal = (items) => {
+    var total = 0;
+    for (var i = 0; i < items.length; i++) {
+      total += items[i].price * items[i].quantity;
+    }
+    return total;
+  }
+
   decreaseItem = (item) => {
     let { items } = this.state.cart;
     //check for item already in cart
@@ -173,6 +181,7 @@ class MyApp extends App {
           increaseItem: this.increaseItem,
           decreaseItem: this.decreaseItem,
           deleteItem: this.deleteItem,
+          getCartTotal: this.getCartTotal,
         }}
       >
           <Component {...pageProps} />

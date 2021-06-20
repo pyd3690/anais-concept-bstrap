@@ -104,7 +104,7 @@ const CartContent = (props) =>  {
                     <div>
                       <Badge style={{ width: 200, padding: 10 }} color="light">
                         <h5 style={{ fontWeight: 100, color: "gray" }}>Total:</h5>
-                        <h3>{ appContext.cart.total} FCFA </h3>
+                        <h3>{ appContext.getCartTotal(cart.items)} FCFA </h3>
                       </Badge>
                       {
                         <div
