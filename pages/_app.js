@@ -15,14 +15,14 @@ class MyApp extends App {
     //if items in cart, set items and total from cookie
     console.log(cart);
 
-    /* if (typeof cart === "string" && cart !== "undefined") {
+    if (typeof cart === "string" && cart !== "undefined") {
       console.log("foyd");
       JSON.parse(cart).forEach((item) => {
         this.setState({
           cart: { items: JSON.parse(cart), total: item.price * item.quantity },
         });
       });
-    } */
+    }
     
   }
 
