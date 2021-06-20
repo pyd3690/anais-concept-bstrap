@@ -59,8 +59,8 @@ class MyApp extends App {
             total: getTotal(newList), // this.state.cart.total + item.price * item.sentQuantity,
           },
         },
-        () => Cookie.set("cart", newList)
       );
+      () => Cookie.set("cart", newList)
     } else {
       var newList = []
       for (var i = 0; i < items.length; i++){
@@ -82,8 +82,8 @@ class MyApp extends App {
             total: getTotal(newList), //this.state.cart.total + item.price* item.sentQuantity,
           },
         },
-        () => Cookie.set("cart", newList)
       );
+      () => Cookie.set("cart", newList)
     }
   };
 
@@ -112,8 +112,8 @@ class MyApp extends App {
             total: getTotal(newList), //this.state.cart.total + item.price* item.sentQuantity,
           },
         },
-      () => Cookie.set("cart", newList)
     );
+    () => Cookie.set("cart", newList)
   };
 
   decreaseItem = (item) => {
@@ -134,8 +134,8 @@ class MyApp extends App {
             total: getTotal(newList), 
           },
         },
-        () => Cookie.set("cart", this.newList)
       );
+      () => Cookie.set("cart", this.newList)
     } else {
       const items = [...this.state.cart.items];
       const index = items.findIndex((i) => i.id === item.id && i.name === item.name && i.category === item.category);
@@ -143,8 +143,8 @@ class MyApp extends App {
       items.splice(index, 1);
       this.setState(
         { cart: { items: items, total: getTotal(items)/* this.state.cart.total - item.price*item.quantity */ } },
-        () => Cookie.set("cart", this.state.items)
       );
+      () => Cookie.set("cart", this.state.items)
     }
   };
 
@@ -157,8 +157,8 @@ class MyApp extends App {
       items.splice(index, 1);
       this.setState(
         { cart: { items: items, total: getTotal(items)/* this.state.cart.total - item.price*item.quantity */ } },
-        () => Cookie.set("cart", this.state.items)
       );
+      () => Cookie.set("cart", this.state.items)
   };
 
 
