@@ -8,7 +8,7 @@ import ReactMarkdown from "react-markdown";
 const CoverCarousel = (props) => {
     const slides_data = props.slides
     const carousel_items = slides_data.map((slide) =>
-    <Carousel.Item key={slide.src}>
+    <Carousel.Item key={slide.id}>
         <img
         //className="d-block w-100"
         //className="img-fluid"

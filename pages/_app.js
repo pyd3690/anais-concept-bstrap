@@ -38,9 +38,10 @@ class MyApp extends App {
   
   
   addItem = (item) => {
+    var result = false;
     if(item.price === null || item.price === undefined) {
-      alert("Ce Produit n'a pas de prix listé. Contactez Nous via notre page contact pour plus the details.\nMerci");
-      return;
+      //alert("Ce Produit n'a pas de prix listé. Contactez Nous via notre page contact pour plus the details.\nMerci");
+      return result;
     }
     let { items } = this.state.cart;
     //check for item already in cart
@@ -61,6 +62,7 @@ class MyApp extends App {
         },
         () => Cookie.set("cart", newList)
       );
+      result = true;
     } else {
       var newList = []
       for (var i = 0; i < items.length; i++){
@@ -84,7 +86,9 @@ class MyApp extends App {
         },
         () => Cookie.set("cart", newList)
       );
+      result = true;
     }
+    return result;
   };
 
   increaseItem = (item) => {
