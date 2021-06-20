@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
+
+.container{
+    font-family: 'Quicksand', sans-serif;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cover{
+    width: 4.56vw;
+    height: 9.58vh;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.moment{
+    font-size: 23px;
+    color: grey;
+    padding: 10px;
+}
+
+.content{
+    margin-top: 0;
+    font-size: 25px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.sectionTitle{
+    margin-top: 20px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #BF9004;
+  } 
+
+.sectionEmpty{
+    margin-top: 20px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #BF9004;
+  } 
+
+  .itemRow {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .label{
+    font-size: 13px;
+    font-weight: bold;
+    color:gray;
+  }
+  .itemLabel {
+      width: 60%;
+      
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .itemNumber{
+      width: 28%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .itemButton{
+      width: 27%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .iconC{
+    width: 10%;
+  }
+
+  .sectionCall{
+    text-align: left;
+    color: grey;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    margin-bottom: 60px;
+    margin-top: 25px;
+    text-decoration: none;
+  }
+
+  .itemPrice {
+    font-size: 17px;
+    color: rgba(97, 97, 97, 1);
+    margin-left: 5px;
+    width: 30%;
+  }
+  .itemQuantity {
+    font-size: 0.95em;
+    padding-bottom: 4px;
+    color: rgba(158, 158, 158, 1);
+    width: 25%;
+  }
+  .itemName {
+    font-size: 17px;
+    color: rgba(97, 97, 97, 1);
+    width: 60%;
+    font-weight: bold;
+    overflow-wrap: break-word;
+        margin-left: 2%;
+        text-align: left;
+  }
+
+@media (max-width: 1024px) {
+    .container{
+        width: 100%;
+        padding: 5%;
+        margin-top: 0;
+    }
+
+    .cover{
+        height: 7.32vh;
+        width: 9.76vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .container{
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 5px;
+    }
+    
+    .cover{
+        height: 9.42vh;
+        width: 16.63vw;
+    }      
+
+    .sectionTitle{
+        font-family: 'Quicksand', sans-serif;
+        font-size: 25px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .sectionEmpty{
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .moment{
+        font-size: 18px;
+    }
+    .content{
+        font-size: 18px;
+    }   
+    
+    .sectionCall{
+        font-size: 15px;
+        margin-bottom: 30px;
+      }
+
+    .itemLabel{
+        width: 50%;
+    }
+    .itemName{
+        font-size: 12px;
+        width: 100%;
+    }
+    .itemPrice{
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .itemButton{
+        font-size: 14px;
+        width: 60%;
+    } 
+
+  .iconC{
+    width: 20%;
+  }
+
+    .itemQuantity{
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+}

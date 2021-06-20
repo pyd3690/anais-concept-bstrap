@@ -37,6 +37,7 @@ export async function getStaticProps() {
 
   const slides = slides0.map(item => {
       const container = {};
+      container['id'] = item.id;
       container['image'] = item.image.url;
       container['imageAlt'] = item.imageAlt;
       container['title'] = item.title_markdown;
