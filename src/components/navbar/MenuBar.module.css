@@ -12,3 +12,14 @@
 .active {
     color: yellow;
   }
+
+  .cart{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+  @media (max-width: 767px) {
+      .cart{
+          font-size: 12px;
+      }
+  }

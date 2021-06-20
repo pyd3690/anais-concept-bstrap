@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import {Navbar, Nav, Button, Badge} from 'react-bootstrap'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './MenuBar.module.css'
+    import AppContext from "../../../context/AppContext";
+
 
 const MenuBar = (props) => {
     const router = useRouter()
     const currentRoute = router.asPath
+    const appContext = useContext(AppContext);
+
     return (
         <>
             <Navbar className={styles.menuContainer} collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '0px', width: '100%'}}>
@@ -48,7 +52,7 @@ const MenuBar = (props) => {
                     </Nav>
                 </Navbar.Collapse>       
                  
-                <Navbar.Brand href="/cart" className="ml-auto" id="panier">
+                <Navbar.Brand href="/cart" className="ml-auto mr-0" id="panier">
                     <img
                         src="/icons/bag.png"
                         width="25px"
@@ -56,7 +60,7 @@ const MenuBar = (props) => {
                         className="d-inline-block align-top"
                         alt="Anais logo"
                     />      
-                    <a><Badge variant="dark" className="d-inline-block align-top">{props.itemNumber}</Badge></a>          
+                    <a className={styles.cart}><Badge variant="dark" className="d-inline-block align-top">{appContext.cart.total} FCFA</Badge></a>          
                 </Navbar.Brand>
             </Navbar>
         </>

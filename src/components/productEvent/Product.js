@@ -1,11 +1,12 @@
-import {React, useState} from 'react';
+import {React, useState, useContext} from 'react';
 import Link from 'next/link';
 import {Badge, Image, Button, InputGroup, FormControl} from 'react-bootstrap'
 import styles from './Product.module.css'
 import ReactMarkdown from "react-markdown";
-import Moment from 'react-moment';
+import AppContext from "../../../context/AppContext";
 
 const Product = (props) => {
+    const appContext = useContext(AppContext);
     const [count, setCount] = useState(1);
 
     const product_data = props.product
@@ -47,7 +48,12 @@ const Product = (props) => {
                 <ReactMarkdown>{"" + product_data.description}</ReactMarkdown>
             </div>
             <Link href="#cart">
-                <Button variant="warning" style={{backgroundColor: '#F2CF63'}}>Ajouter Au Panier</Button>
+                <Button variant="warning" style={{backgroundColor: '#F2CF63'}}
+                onClick={() => {   
+                    const cartItem = Object.assign(product_data, {'sentQuantity': count});
+                    appContext.addItem(cartItem)}}>
+                        Ajouter Au Panier
+                </Button>
             </Link>
         </div>
     )
