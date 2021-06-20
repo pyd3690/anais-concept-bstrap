@@ -24,14 +24,14 @@ class MyApp extends App {
     //if items in cart, set items and total from cookie
     console.log(cart);
 
-    if (typeof cart === "string" && cart !== "undefined") {
+    /* if (typeof cart === "string" && cart !== "undefined") {
       console.log("foyd");
       JSON.parse(cart).forEach((item) => {
         this.setState({
           cart: { items: JSON.parse(cart), total: item.price * item.quantity },
         });
       });
-    }
+    } */
     
   }
 
@@ -66,7 +66,7 @@ class MyApp extends App {
       for (var i = 0; i < items.length; i++){
         newList[i] = items[i];
         if(items[i].id === item.id && items[i].name === item.name && items[i].category === item.category){
-          newList[i].quantity = items[i].quantity + items.sentQuantity;
+          newList[i].quantity = items[i].quantity + item.sentQuantity;
         }        
       }
       
