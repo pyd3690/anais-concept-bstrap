@@ -10,9 +10,10 @@ import styles from './MenuBar.module.css'
 const MenuBar = (props) => {
     const router = useRouter()
     const currentRoute = router.asPath
+    const actualRoute = router.pathname
     const appContext = useContext(AppContext);
     const { cart } = appContext;
-
+    //console.log("/cart" + actualRoute)
     return (
         <>
             <Navbar className={styles.menuContainer} collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top' style={{borderRadius: '0px', width: '100%'}}>
@@ -53,7 +54,7 @@ const MenuBar = (props) => {
                     </Nav>
                 </Navbar.Collapse>       
                  
-                <Navbar.Brand href="/cart" className="ml-auto mr-0" id="panier">
+                <Navbar.Brand href={"/cart"} className="ml-auto mr-0" id="panier">
                     <img
                         src="/icons/bag.png"
                         width="25px"

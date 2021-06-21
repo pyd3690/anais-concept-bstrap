@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import {useRouter} from 'next/router'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import MenuBar from '../src/components/navbar/MenuBar.js'
@@ -7,7 +8,10 @@ import CartContent from '../src/components/cart/CartContent.js'
 
 
 export default function CartPage({ showEvent, eventTitle}) {
-  //console.log(articles);
+  
+  //const { query } = useRouter();
+  //console.log(query);
+  const boutique = eventTitle === "No Event" ? "store": "event";
   return (
     <div className={styles.container}>
       <Head>
@@ -17,8 +21,8 @@ export default function CartPage({ showEvent, eventTitle}) {
       </Head>
 
       <main  style={{overflow: 'hidden'}} id="container">
-        <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>        
-        <CartContent />
+        <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle} />        
+        <CartContent back={boutique}/>
         <div style={{height: "300px"}}></div>
         <Footer />
       </main>      
@@ -39,3 +43,5 @@ export async function getStaticProps() {
     revalidate: 10,
   }
 }
+
+

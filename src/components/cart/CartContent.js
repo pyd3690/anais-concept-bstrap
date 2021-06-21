@@ -33,8 +33,9 @@ const CartContent = (props) =>  {
   return (
     <>
         <div className={styles.container}>
-          
-          <h4 className={styles.sectionCall} onClick={() => router.back()} style={{cursor: 'pointer', decorationStyle: 'underline'}}>&#60; Retour</h4>
+          <Link href={"/" + props.back}><h4 className={styles.sectionCall} style={{cursor: 'pointer', decorationStyle: 'underline'}}>&#60; Boutique</h4></Link>
+
+{/*           <h4 className={styles.sectionCall} onClick={() => router.back()} style={{cursor: 'pointer', decorationStyle: 'underline'}}>&#60; Retour</h4> */}
              
           <p className={styles.sectionTitle}>Votre Panier</p>
           <Card style={{ padding: "10px 5px" }} className="cart">

@@ -44,8 +44,6 @@ const CheckoutContent = (props) =>  {
 
     function onChange(e) {
       // set the key = to the name property equal to the value typed
-      console.log("id: " + e.target.id)
-      console.log(data)
       const updateItem = (data[e.target.id] = e.target.value);
       // update the state data object
       setData({ ...data, updateItem });
@@ -66,6 +64,7 @@ const CheckoutContent = (props) =>  {
         return;
       }
       alert("Commande Confirmee!!!")
+      console.log(data)
     }
 
   return (
@@ -137,7 +136,7 @@ const CheckoutContent = (props) =>  {
                       <option value='pickup'>Je veux passer recuperer ma commande</option>
                     </Form.Control>
                     <Form.Control.Feedback type="invalid">
-                      Choisissez votre preference
+                      Choisissez une preference
                     </Form.Control.Feedback>
                   </Form.Group>
                   <h5 style={{fontWeight: 'normal', marginTop: '20px',}}>Total:  { appContext.getCartTotal(cart.items)} FCFA </h5>
