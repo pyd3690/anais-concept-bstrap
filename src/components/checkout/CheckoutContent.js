@@ -200,7 +200,7 @@ const CheckoutContent = (props) =>  {
                     Vous devez acceptez les conditions avant de confirmer la commande
                     </Form.Control.Feedback>
                   </Form.Group>
-                  <Button id="confirm" style={{ width: "100%", marginTop: "15px"}} variant="warning" type="submit">
+                  <Button id="confirm" style={{ width: "100%", marginTop: "15px"}} variant="warning" type="submit" disabled={(appContext.getCartTotal(cart.items)===0)?true:false}>
                       <a>Confirmer</a>
                     </Button>
             {showConfirmation && 
