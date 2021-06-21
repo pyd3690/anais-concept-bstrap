@@ -35,7 +35,18 @@ class MyApp extends App {
     
   }
 
-  
+  emptyCart = () => {
+    var newList = []
+    this.setState(
+      {
+        cart: {
+          items: newList,
+          total: 0, // this.state.cart.total + item.price * item.sentQuantity,
+        },
+      },
+      () => Cookie.set("cart", newList)
+    );
+  }
   
   addItem = (item) => {
     var result = false;
@@ -186,6 +197,7 @@ class MyApp extends App {
           decreaseItem: this.decreaseItem,
           deleteItem: this.deleteItem,
           getCartTotal: this.getCartTotal,
+          emptyCart: this.emptyCart,
         }}
       >
           <Component {...pageProps} />

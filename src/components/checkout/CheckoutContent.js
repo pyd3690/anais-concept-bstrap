@@ -1,9 +1,12 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Button, Card, Badge, InputGroup, FormControl, Form } from "react-bootstrap";
+import { Button, Card, Badge, InputGroup, FormControl, Form, Alert } from "react-bootstrap";
 import styles from './CheckoutContent.module.css';
 import AppContext from "../../../context/AppContext";
+import moment from "moment"
+import Cookie from "js-cookie";
+
 
 const cart1 = {
   'items': [
@@ -25,6 +28,8 @@ const cart1 = {
 }
 
 const CheckoutContent = (props) =>  {
+    const [showConfirmation, setshowConfirmation] = useState(false);
+    const [type, setType] = useState('delivery');
     const appContext = useContext(AppContext);
     const router = useRouter();
     const { cart } = appContext;
@@ -35,21 +40,33 @@ const CheckoutContent = (props) =>  {
       phone: "",
       email: "",
       city: "",
-      country: "",
-      ctype: "",
+      country: "TOGO",
+      ctype: "delivery",
     });
     const [validated, setValidated] = useState(false);
+    const [error, setError] = useState("");
 
 
 
     function onChange(e) {
       // set the key = to the name property equal to the value typed
+      if(e.target.id === "ctype"){
+        //setType(e.target.value)
+        let selectElement = document.getElementById("ctype");
+        let valueSelected = selectElement.options[selectElement.selectedIndex].value; // get selected option value
+        const updateItem = (data['ctype'] = valueSelected);
+      // update the state data object
+      setData({ ...data, updateItem });
+      }
+      else{
       const updateItem = (data[e.target.id] = e.target.value);
       // update the state data object
       setData({ ...data, updateItem });
+      }
     }
 
     async function submitOrder(event){
+      event.preventDefault();
       const form = event.currentTarget;
       var validForm = true;
       if (form.checkValidity() === false) {
@@ -63,8 +80,40 @@ const CheckoutContent = (props) =>  {
       if (!validForm) {
         return;
       }
-      alert("Commande Confirmee!!!")
-      console.log(data)
+      //console.log(data)
+      
+      //console.log(cart.items);
+      const response = await fetch('https://anais-backend.herokuapp.com/orders', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          total: Number(appContext.getCartTotal(cart.items)),
+          name: data.name,
+          items: cart.items,
+          address: data.address,
+          city: data.city,
+          country: data.country,
+          date: moment().format(),
+          type: data.ctype,
+          moreInfo: data.moreInfo,
+          phone: data.phone,
+          email: data.email,
+        }),
+      });
+  
+      if (!response.ok) {
+        setError(response.statusText);
+        console.log(response.statusText);
+      }
+      else{
+        setshowConfirmation(true)
+        appContext.emptyCart()
+        document.getElementById("confirm").disabled = true;
+        //event.preventDefault();
+      }
+
+      //alert("Commande Confirmee!!!")
+      //router.push("/")
     }
 
   return (
@@ -131,7 +180,7 @@ const CheckoutContent = (props) =>  {
                   </Form.Group>
                   <Form.Group className="mb-3" >
                       <Form.Label className={styles.label}>Preference</Form.Label>
-                    <Form.Control as="select" custom id="country" required onChange={onChange}>
+                    <Form.Control as="select" custom id="ctype" required onChange={onChange} value={type}>
                       <option selected value='delivery'>Je veux me faire Livrer</option>
                       <option value='pickup'>Je veux passer recuperer ma commande</option>
                     </Form.Control>
@@ -142,7 +191,7 @@ const CheckoutContent = (props) =>  {
                   <h5 style={{fontWeight: 'normal', marginTop: '20px',}}>Total:  { appContext.getCartTotal(cart.items)} FCFA </h5>
                   <Form.Group style={{fontWeight: 'bold', marginTop: '20px',}}>
                     <Form.Check
-                      id="ctype"
+                      id="agree"
                       required
                       label="En cliquant, vous acceptez de payer le montant total de la commande a la reception de la commande"
                       feedback="Vous devez acceptez les conditions avant de confirmer la commande"
@@ -151,9 +200,17 @@ const CheckoutContent = (props) =>  {
                     Vous devez acceptez les conditions avant de confirmer la commande
                     </Form.Control.Feedback>
                   </Form.Group>
-                  <Button style={{ width: "100%", marginTop: "15px"}} variant="warning" type="submit">
+                  <Button id="confirm" style={{ width: "100%", marginTop: "15px"}} variant="warning" type="submit">
                       <a>Confirmer</a>
                     </Button>
+            {showConfirmation && 
+                <Alert variant="warning" onClose={() => setshowConfirmation(false)} dismissible autoFocus style={{marginTop: '10px', textAlign: 'center'}}>
+                    <Alert.Heading>Votre Commande a bien ete placee. Un email de confirmation a ete envoye a {data.email} <br />Nous vous contacterons bientot sur le {data.phone}.</Alert.Heading>
+                    <Link href="/">
+                        <p style={{cursor: 'pointer', textDecoration: 'underline'}}>Continer Votre Visite &#62;</p>
+                    </Link>
+                </Alert>
+            }
                 </Form>
               </div>
             </Card.Body>

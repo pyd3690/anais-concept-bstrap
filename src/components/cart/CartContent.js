@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Button, Card, Badge } from "react-bootstrap";
+import { Button, Card, Badge, alert } from "react-bootstrap";
 import styles from './CartContent.module.css';
 import AppContext from "../../../context/AppContext";
 
@@ -33,7 +33,7 @@ const CartContent = (props) =>  {
   return (
     <>
         <div className={styles.container}>
-          <Link href={"/" + props.back}><h4 className={styles.sectionCall} style={{cursor: 'pointer', decorationStyle: 'underline'}}>&#60; Boutique</h4></Link>
+          <Link href={"/" + props.back}><h4 className={styles.sectionCall} style={{cursor: 'pointer', decorationStyle: 'underline'}}>&#60; Continuer Votre Shopping</h4></Link>
 
 {/*           <h4 className={styles.sectionCall} onClick={() => router.back()} style={{cursor: 'pointer', decorationStyle: 'underline'}}>&#60; Retour</h4> */}
              
