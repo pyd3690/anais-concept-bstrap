@@ -55,41 +55,43 @@ const ContactSection = (props) => {
           return;
         }
         console.log('sending client message');
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json, text/plain, */*',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
-        
-        console.log(response.result)
-        if (response.status !== 200) { //(!response.ok) {
-        setError(response.statusText);
-        console.log(error);
+        const response = await fetch('https://anais-backend.herokuapp.com/messages', {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            data
+          }),
+        });
+    
+        if (!response.ok) {
+          setError(response.statusText);
+          console.log(response.statusText);
         }
         else{
-        setshowConfirmation(true);
-        //alert("OK");
-        //event.preventDefault();
+          setshowConfirmation(true)
+          //event.preventDefault();
         }
-
-
-        // fetch('/api/contact', {
+        
+        // const response = await fetch('/api/contact', {
         //     method: 'POST',
         //     headers: {
         //       'Accept': 'application/json, text/plain, */*',
         //       'Content-Type': 'application/json'
         //     },
         //     body: JSON.stringify(data)
-        //   }).then((res) => {
-        //     console.log('Response received')
-        //     if (res.status === 200) {
-        //       console.log('Response succeeded!')
-        //       setshowConfirmation(true)
-        //     }
-        //   })
+        //   });
+        
+        // console.log(response.result)
+        // if (response.status !== 200) { //(!response.ok) {
+        // setError(response.statusText);
+        // console.log(error);
+        // }
+        // else{
+        // setshowConfirmation(true);
+        // //alert("OK");
+        // //event.preventDefault();
+        // }
+
         
     }
 
