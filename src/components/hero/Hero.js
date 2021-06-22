@@ -14,7 +14,7 @@ const HeroSection = (props) => {
                 </div>
                 <div className={styles.heroRightCol}>
                     <div className={styles.RightPicTop}>
-                    <Card className="bg-dark text-white">
+                    <Card className="bg-dark text-white" style={{borderRadius: '0px'}}>
                         <Card.Img className="img-fluid" src={props.topPicture.src} alt={props.topPicture.alt} />
                         <Card.ImgOverlay className={styles.cardtext}>
                             <Card.Title className={styles.cardtitlewrap}>{props.topPicture.title}</Card.Title>
@@ -29,7 +29,7 @@ const HeroSection = (props) => {
                         text="light"
                         style={{ width: '18rem' }}
                         className="mb-2"
-                        style={{width: '100%', height: '100%', backgroundColor:'#C2A33E'}}
+                        style={{width: '100%', height: '100%', backgroundColor:'#C2A33E', borderRadius: '0px'}}
                     >
                         <Card.Body>
                             <Card.Title className={styles.bottomPictureTitle}>{props.bottomPicture.title} </Card.Title>

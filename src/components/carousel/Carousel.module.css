@@ -61,4 +61,9 @@
     .carouselImage{
         height: 250px;
     }
+
+    .slides{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }

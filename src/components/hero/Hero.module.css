@@ -4,7 +4,6 @@
 .heroSection{
     width: 100%;
     margin-top: 5px;
-    background-color: lightgray;
     margin-left: 0px;
     margin-right: 0px;
     height: 600px;   
@@ -135,6 +134,7 @@ div.markdown a{
     .heroSection{
       margin-top: 0px;
       height: 100px;
+      border-radius: 0px;
     } 
 
     .carousel{
@@ -142,18 +142,20 @@ div.markdown a{
         width: 100%;
         margin-right: 0px;
         height: auto;/* 250px; */
-        border-radius: 5px;
+        border-radius: 0px;
+        border: 0px solid #adb5bd;
     }
     
     .heroRightCol{
         margin-top: 0px;
         width: 100%;
         height: auto;
-        border-radius: 0;
+        border-radius: 0px;
     }
 
     .RightPicTop{
         height: auto; /*175px;*/
+        border-radius: 0px;
     }
     
     .cardtext{    
@@ -165,6 +167,9 @@ div.markdown a{
 
     .RightPicBottom{
         height: 175px;
+        border-radius:0px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 10px;
     }
     .bottomPictureTitle{
         font-size: 20px;
