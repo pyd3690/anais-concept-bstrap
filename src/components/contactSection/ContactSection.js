@@ -1,69 +1,172 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
-import {InputGroup, Dropdown, Form, Button, FormControl, DropdownButton, ListGroup} from 'react-bootstrap'
+import {useRouter} from 'next/router';
+import {InputGroup, Dropdown, Form, Button, FormControl, DropdownButton, ListGroup, Alert} from 'react-bootstrap'
 import styles from './ContactSection.module.css'
 import ReactMarkdown from "react-markdown";
+import moment from "moment"
+//import nodemailer from 'nodemailer'
 
 
 const ContactSection = (props) => {
+    const [showConfirmation, setshowConfirmation] = useState(false);
+    const [type, setType] = useState('Requete/info');
+    const [data, setData] = useState({
+      name: "",
+      phone: "",
+      email: "username@example.com",
+      subject: "renseignement",
+      message: "",
+      ctype: "Requete/info",
+    });
+    const [validated, setValidated] = useState(false);
+    const [error, setError] = useState("");
     
+    function onChange(e) {
+        // set the key = to the name property equal to the value typed
+        if(e.target.id === "ctype"){
+          //setType(e.target.value)
+          let selectElement = document.getElementById("ctype");
+          let valueSelected = selectElement.options[selectElement.selectedIndex].value; // get selected option value
+          const updateItem = (data['ctype'] = valueSelected);
+          // update the state data object
+          setData({ ...data, updateItem });
+        }
+        else{
+            const updateItem = (data[e.target.id] = e.target.value);
+            // update the state data object
+            setData({ ...data, updateItem });
+        }
+    }
+
+    async function sendMessage(event){
+        event.preventDefault();
+        const form = event.currentTarget;
+        var validForm = true;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+          validForm = false;
+          //return;
+        }
+  
+        setValidated(true);
+        if (!validForm) {
+          return;
+        }
+        console.log('sending client message');
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+        
+        console.log(response.result)
+        if (response.status !== 200) { //(!response.ok) {
+        setError(response.statusText);
+        console.log(error);
+        }
+        else{
+        setshowConfirmation(true);
+        //alert("OK");
+        //event.preventDefault();
+        }
+
+
+        // fetch('/api/contact', {
+        //     method: 'POST',
+        //     headers: {
+        //       'Accept': 'application/json, text/plain, */*',
+        //       'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        //   }).then((res) => {
+        //     console.log('Response received')
+        //     if (res.status === 200) {
+        //       console.log('Response succeeded!')
+        //       setshowConfirmation(true)
+        //     }
+        //   })
+        
+    }
+
+
     return (
         <div className={styles.section}>
             <h2 className={styles.sectionTitle}> Laissez Nous Un Message et Nous vous recontacterons</h2>
-            <InputGroup className="mb-3">
-                <FormControl
-                placeholder="Nom & Prenoms"
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
-                />
-            </InputGroup>
-            <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-default">@</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl
-                placeholder="Email"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-                />
-            </InputGroup>
-            <InputGroup className="mb-3">
-                <FormControl
-                placeholder="Telephone"
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
-                />
-            </InputGroup>
-            <InputGroup className="mb-3">
-                <DropdownButton
-                as={InputGroup.Prepend}
-                variant="warning"
-                title="Comment Vous Assister "
-                id="input-group-dropdown-1"
-                >
-                <Dropdown.Item href="#">Requete/ Info</Dropdown.Item>
-                <Dropdown.Item href="#">Suggestions</Dropdown.Item>
-                <Dropdown.Item href="#">Rendez Vous</Dropdown.Item>
-                <Dropdown.Item href="#">Autre</Dropdown.Item>
-                </DropdownButton>
-            </InputGroup>
-            <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-default">Objet</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl
-                placeholder="L'objet de votre message"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-                />
-            </InputGroup>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-            <Button variant="warning" type="submit" style={{marginBottom:'20px'}}>
-                Envoyer
-            </Button>
+            <Form noValidate validated={validated} onSubmit={sendMessage}>
+                <Form.Group className="mb-3">
+                    <Form.Label className={styles.label}>Nom</Form.Label>
+                    <FormControl
+                    placeholder="Nom & Prenoms"
+                    aria-label="nom"
+                    id="name" required onChange={onChange} 
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Entrer vos Nom et Prenoms
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                      <Form.Label className={styles.label}>Email</Form.Label>
+                    <FormControl
+                    placeholder="Email"
+                    aria-label="Email"
+                    id="email" defaultValue="username@example.com" onChange={onChange} 
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                      <Form.Label className={styles.label}>Telephone</Form.Label>
+                    <FormControl
+                    placeholder="Telephone"
+                    aria-label="telephone"
+                    id="phone" required onChange={onChange} 
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Entrer un numero de telephone
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                      <Form.Label className={styles.label}>Comment Vous Assister</Form.Label>
+                    <Form.Control as="select" custom id="ctype" required onChange={onChange} value={type}>
+                      <option selected value='Requete/info'>Requete/ Info</option>
+                      <option value='Suggestions'>Suggestions</option>
+                      <option value='RDV'>Rendez Vous</option>
+                      <option value='Autre'>Autre</option>
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                      Choisissez une preference
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label className={styles.label}>Objet</Form.Label>
+                    <FormControl
+                    placeholder="L'objet de votre message"
+                    aria-label="Objet"
+                    id = "subject" defaultValue="Renseignement" onChange={onChange}
+                    />
+                </Form.Group>
+                <Form.Group >
+                    <Form.Label className={styles.label}>Message</Form.Label>
+                    <Form.Control as="textarea" rows={3} id="message"  required onChange={onChange} />
+                    <Form.Control.Feedback type="invalid">
+                      Entrer un message
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Button variant="warning" type="submit" style={{marginBottom:'20px'}}>
+                    Envoyer
+                </Button>
+                {showConfirmation && 
+                    <Alert variant="warning" onClose={() => setshowConfirmation(false)} dismissible autoFocus style={{marginTop: '10px', textAlign: 'center'}}>
+                        <Alert.Heading>Votre Message a bien ete envoye. <br />Nous vous contacterons bientot sur le {data.phone} ou via {data.email}.</Alert.Heading>
+                        <Link href="/">
+                            <p style={{cursor: 'pointer', textDecoration: 'underline'}}>Continer Votre Visite &#62;</p>
+                        </Link>
+                    </Alert>
+                }
+            </Form>
             <br /><br />
             <h2 className={styles.sectionTitle}> Autre Contact</h2>
             <ListGroup>

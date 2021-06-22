@@ -77,6 +77,12 @@
         text-align: left;
         width: 90%;
     }
+    
+  .label{
+    font-size: 13px;
+    font-weight: bold;
+    color:gray;
+  }
 
   @media (max-width: 1024px) {
     .section{
