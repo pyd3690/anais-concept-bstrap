@@ -31,12 +31,12 @@ const CoverCarousel = (props) => {
   </Carousel.Item>
   );
     return (
-        <>
+        <div >
             <Carousel className={styles.carousel}>
                 {carousel_items}
             </Carousel>
             <h2 className={styles.sectionTitle}>{props.title}</h2>
-        </>
+        </div>
     )
 }
 

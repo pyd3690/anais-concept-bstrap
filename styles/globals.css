@@ -40,6 +40,52 @@ a {
   font-size: 20px;
 }
 
+.categoryBack{
+  background-image: url(https://res.cloudinary.com/ignitouch/image/upload/v1624384299/backgrounds/back4_ararmw.jpg);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.greyBack{
+  background-image: url(https://res.cloudinary.com/ignitouch/image/upload/v1624384095/backgrounds/back8_qtuccf.jpg);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.eventBack{
+  background-image: url(https://res.cloudinary.com/ignitouch/image/upload/v1624384066/backgrounds/back11_l4ed1u.jpg);
+
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.productBack{
+  background-image: url(https://res.cloudinary.com/ignitouch/image/upload/v1624383321/backgrounds/back6_gknmfm.jpg);
+
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 @media (max-width: 770px) {
   #Menutitle{
     display:inline;
@@ -61,6 +107,22 @@ a {
   .noEvent{
     font-family: 'Quicksand', sans-serif; /* 'Pacifico', cursive; */
     font-size: 25px;
+  }
+
+  .categoryBack{
+    background-image:none
+  }
+  
+  .greyBack{
+    background-image:none
+  }
+  
+  .eventBack{
+    background-image:none
+  }
+  
+  .productBack{
+    background-image:none
   }
 }
 

@@ -27,7 +27,7 @@ const StandDisplay = (props) => {
                 <Image src={stand.image} fluid className={styles.cover}/>
             </div>
             
-           
+           <hr/>
             <CategoryListing categories={categories} />
         </div>
     )

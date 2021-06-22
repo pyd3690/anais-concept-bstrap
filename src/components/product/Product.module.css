@@ -7,6 +7,11 @@
     margin-right: auto;
     margin-left: auto;
     overflow: hidden;
+    background-color: #f8f8f8;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 .cover{
@@ -78,6 +83,8 @@
 @media (max-width: 767px) {
     .container{
         width: 90%;
+        background-color: white;
+        padding: 0px;
     }
     
     .cover{

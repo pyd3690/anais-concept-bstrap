@@ -31,9 +31,11 @@ const StandListing = (props) => {
         <>
         <div className={styles.section}>
             <h2 className={styles.sectionTitle}> {props.eventDescription}</h2>
+            
             <div className={styles.cardBox}>
                 {card_items}
             </div> 
+            
         </div>
             
         </>

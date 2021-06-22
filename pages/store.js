@@ -16,9 +16,10 @@ export default function StorePage({coverSlides, categories, showEvent, eventTitl
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{overflow: 'hidden'}} id="container">
+      <main style={{overflow: 'hidden'}} id="container" className="greyBack">
       <MenuBar itemNumber={0} showEvent={showEvent} eventTitle={eventTitle}/>
       <CoverCarousel slides={coverSlides} title="Anais Concept Store & Catalogue"/>
+      <hr/>
       <CategoryListing categories={categories} />
       <div style={{height: "200px"}}></div>
       <Footer />

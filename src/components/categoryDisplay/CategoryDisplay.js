@@ -27,7 +27,7 @@ const CategoryDisplay = (props) => {
                 <Image src={category.image} fluid className={styles.cover}/>
             </div>
             
-           
+            <hr/>
             <ProductListing products={products} />
         </div>
     )

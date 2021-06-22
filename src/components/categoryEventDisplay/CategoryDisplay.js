@@ -27,7 +27,7 @@ const CategoryDisplay = (props) => {
             <div style={{display: 'flex', justifyContent: 'center'}}>    
                 <Image src={category.image} fluid className={styles.cover}/>
             </div>
-            
+            <hr/>
            
             <ProductListing products={products} />
         </div>

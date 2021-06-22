@@ -19,7 +19,7 @@ function StandPage({ stand, categories, showEvent, eventTitle}) {
             <link rel="icon" href="/favicon.ico" />
           </Head>
     
-          <main  style={{overflow: 'hidden'}} id="container">
+          <main  style={{overflow: 'hidden'}} id="container"  className="categoryBack">
             <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
             <div>Loading...</div>
             <Footer />
@@ -36,7 +36,7 @@ function StandPage({ stand, categories, showEvent, eventTitle}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main  style={{overflow: 'hidden'}} id="container">
+      <main  style={{overflow: 'hidden'}} id="container" className="categoryBack">
         <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
         <StandDisplay stand={stand} categories={categories}/>
         <div style={{height: "150px"}}></div> 

@@ -7,7 +7,7 @@
     height: 550px;
     margin-right: auto;
     margin-left: auto;
-    background-color: white;
+    background-color:#f8f8f8;
     margin-top: 5px;  
     border-radius: 10px; 
     overflow: hidden;
@@ -65,7 +65,8 @@
         width: 100%;
         margin-right: 0px;
         height: 250px;
-        border-radius: 5px;
+        border-radius: 0px;
+        border: 0px solid #adb5bd;
     }
 
     .carousel_captions{

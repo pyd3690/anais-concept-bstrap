@@ -18,7 +18,7 @@ export default function EventPage({eventTitle, eventDescription, coverSlides, st
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{overflow: 'hidden'}} id="container">
+      <main style={{overflow: 'hidden'}} id="container" className="eventBack">
       <MenuBar itemNumber={0} showEvent = {showEvent}/>
       <h1 className="noEvent">Pas D'evenement actuellement. Restez Connecte pour plus d'info</h1>
       <div style={{height: "600px"}}></div>
@@ -36,9 +36,10 @@ export default function EventPage({eventTitle, eventDescription, coverSlides, st
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{overflow: 'hidden'}} id="container">
+      <main style={{overflow: 'hidden'}} id="container" className="eventBack">
       <MenuBar itemNumber={0} showEvent = {showEvent} eventTitle={eventTitle}/>
       <CoverCarousel slides={coverSlides} title={eventTitle}/>
+      <hr/>
       <StandListing stands={stands} eventDescription={eventDescription}/>
       <div style={{height: "200px"}}></div>
       <Footer />

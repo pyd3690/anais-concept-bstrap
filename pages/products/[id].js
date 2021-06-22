@@ -19,7 +19,7 @@ function ProductPage({ product, showEvent, eventTitle}) {
             <link rel="icon" href="/favicon.ico" />
           </Head>
     
-          <main  style={{overflow: 'hidden'}} id="container">
+          <main  style={{overflow: 'hidden'}} id="container" className="productBack">
             <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
             <div>Loading...</div>
             <Footer />
@@ -36,7 +36,7 @@ function ProductPage({ product, showEvent, eventTitle}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main  style={{overflow: 'hidden'}} id="container">
+      <main  style={{overflow: 'hidden'}} id="container" className="productBack">
         <MenuBar itemNumber={0} showEvent= {showEvent} eventTitle={eventTitle}/>
         <Product product={product}/>
         <div style={{height: "300px"}}></div> 
