@@ -15,7 +15,7 @@
   .carousel{
       width: 63%;
       height: 600px;
-      margin-right: 0.5%;
+      margin-right: 0.3%;
       background-color: white;
       margin-top: 5px;  
       border-radius: 10px; 
@@ -24,7 +24,7 @@
   }
 
   .heroRightCol{
-    width: 36%;
+    width: 36.7%;
     height: 600px;
     background-color: white;
     margin-top: 5px;  
@@ -37,6 +37,7 @@
     width: 100%;
     height: 300px;
     background-color: white;
+    margin-top: 0;
     /* margin-bottom: 10px; */  
     /* border-radius: 10px; */ 
     overflow: hidden;
@@ -105,6 +106,13 @@ div.markdown a{
   /* End Hero & Banner Section */
   
   @media (max-width: 1024px) {
+    .heroSection{
+        height: 500px;
+    }
+
+    .carousel{
+        height: 500px;
+    }
     div.markdown li{
         margin-bottom: 3px;
         font-size: 17px;
@@ -119,36 +127,37 @@ div.markdown a{
     }
 
     .heroRightCol{
-        height:600px;
+        height:500px;
     }
 }
 
   @media (max-width: 767px) {
     .heroSection{
-      margin-top: 4px;
+      margin-top: 0px;
       height: 100px;
     } 
 
     .carousel{
-        margin-top: 2px;
+        margin-top: 0;
         width: 100%;
         margin-right: 0px;
-        height: 250px;
+        height: auto;/* 250px; */
         border-radius: 5px;
     }
     
     .heroRightCol{
-        margin-top: 2px;
+        margin-top: 0px;
         width: 100%;
-        height: 350px;
+        height: auto;
+        border-radius: 0;
     }
 
     .RightPicTop{
-        height: 175px;
+        height: auto; /*175px;*/
     }
     
     .cardtext{    
-        padding: 10px;
+        padding: 15px;
     }
     /* .RTopImage{
         height: 175px;
@@ -172,11 +181,11 @@ div.markdown a{
     }
 
     .cardtitlewrap{
-        font-size: 18px;
-        -webkit-line-clamp: 1;
+        font-size: 20px;
+        -webkit-line-clamp: 2;
     }
     .cardtextwrap{
-        font-size: 14px;
-        -webkit-line-clamp: 3;
+        font-size: 18px;
+        -webkit-line-clamp: 6;
     }
   }

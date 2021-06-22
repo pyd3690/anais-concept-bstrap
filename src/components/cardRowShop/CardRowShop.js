@@ -14,7 +14,7 @@ const CardRowShopSection = (props) => {
         <Card.Title className={styles.cardTitle}>
             <ReactMarkdown>{card.name  + ((card.price === undefined || card.price === null) ? ' ' : " - " + card.price.toString() + " FCFA")}</ReactMarkdown>
         </Card.Title>
-        <Badge pill variant="dark">
+        <Badge pill variant="secondary">
             {card.category}
         </Badge>
         <Card.Text className={styles.cardContent}>

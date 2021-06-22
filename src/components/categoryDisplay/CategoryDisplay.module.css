@@ -61,14 +61,14 @@
 
 @media (max-width: 1024px) {
     .container{
-        width: 100%;
+        width: 90%;
         padding: 5%;
         margin-top: 0;
     }
 
     .cover{
-        height: 14.64vh;
-        width: 60%;
+        height: auto;/* 14.64vh; */
+        width: 50%;
     }
 }
 
@@ -81,7 +81,7 @@
     }
     
     .cover{
-        height: 31.06vh;
+        height: auto;
         width: 100%;
         margin-top: 2px;
     }      

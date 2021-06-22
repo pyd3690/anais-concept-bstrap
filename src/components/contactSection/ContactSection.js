@@ -58,9 +58,7 @@ const ContactSection = (props) => {
         const response = await fetch('https://anais-backend.herokuapp.com/messages', {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            data
-          }),
+          body: JSON.stringify(data),
         });
     
         if (!response.ok) {
