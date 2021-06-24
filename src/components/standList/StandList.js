@@ -35,7 +35,7 @@ const StandListing = (props) => {
             <div className={styles.cardBox}>
                 {card_items}
             </div> 
-            
+            <div style={{height: "200px"}}></div>
         </div>
             
         </>

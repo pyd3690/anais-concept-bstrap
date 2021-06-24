@@ -29,7 +29,7 @@ export default function EventPage({eventTitle, eventDescription, coverSlides, st
   }
   else{
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <Head>
         <title>Anais Concept - {eventTitle}</title>
         <meta name="description" content="A vos risques et plaisirs" />
@@ -37,12 +37,13 @@ export default function EventPage({eventTitle, eventDescription, coverSlides, st
       </Head>
 
       <main style={{overflow: 'hidden'}} id="container" className="eventBack">
-      <MenuBar itemNumber={0} showEvent = {showEvent} eventTitle={eventTitle}/>
-      <CoverCarousel slides={coverSlides} title={eventTitle}/>
-      <hr/>
-      <StandListing stands={stands} eventDescription={eventDescription}/>
-      <div style={{height: "200px"}}></div>
-      <Footer />
+        <MenuBar itemNumber={0} showEvent = {showEvent} eventTitle={eventTitle}/>
+        
+          <CoverCarousel slides={coverSlides} title={eventTitle}/>
+          <hr/>
+          <StandListing stands={stands} eventDescription={eventDescription}/>
+          <div style={{height: "100px"}}></div>
+        <Footer />
       </main>      
     </div>
   )}

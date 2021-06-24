@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 .section{
-    width: 65%;
+    width: 70%;
     font-family: 'Quicksand', sans-serif;
     margin-top: 30px;
-    background-color: #f8f8f8;
+    background-color: #F0F0E7;
     /* background-color: lightgray; */
     margin-left: auto;
     margin-right: auto;
     height: auto;    
     border-radius: 10px;
     overflow: hidden;
+    padding-top: 10px;
   }
 
   .sectionTitle{
@@ -28,7 +29,7 @@
   .cardContainer{
       border-radius: 10px;
       overflow: hidden;
-      width: 32%;
+      width: 31%;
       margin-right: 10px;
       margin-bottom: 20px;
   }
